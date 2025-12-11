@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT Chapter 4</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- নোটিশ বক্সের জন্য প্রয়োজনীয় স্টাইল -->
+    <style>
+        .notice-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            display: none; /* প্রাথমিকভাবে লুকানো থাকবে */
+        }
+        .notice-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1001;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            display: none; /* প্রাথমিকভাবে লুকানো থাকবে */
+        }
+        .notice-box p {
+            margin: 0 0 20px;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        .notice-box button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .notice-box button:hover {
+            background-color: #0056b3;
+        }
+        /* ফুটারের লিঙ্কের স্টাইল */
+        footer a {
+            text-decoration: none;
+            color: inherit; /* প্যারেন্টের কালার ব্যবহার করবে */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ICT - ৪র্থ অধ্যায়</h1>
+        <p>পড়া, অনুশীলন এবং প্রস্তুতি - সবকিছু এক জায়গায়</p>
+    </header>
+
+    <main class="container">
+        <nav class="main-menu">
+            <a href="pdf.html" class="menu-item">
+                <div class="icon">📚</div>
+                <div>
+                    <h2>সম্পূর্ণ অধ্যায় PDF </h2>
+                    <p>অধ্যায়ের প্রতিটি পৃষ্ঠা বিস্তারিত পড়ুন</p>
+                </div>
+            </a>
+            <a href="dorkari.html" class="menu-item">
+                <div class="icon">✨</div>
+                <div>
+                    <h2>দরকারি তথ্য</h2>
+                    <p>গুরুত্বপূর্ণ তথ্যের সংগ্রহ</p>
+                </div>
+            </a>
+            <a href="board_mcq.html" class="menu-item">
+                <div class="icon">📝</div>
+                <div>
+                    <h2>বোর্ড MCQ</h2>
+                    <p>সকল বোর্ড পরীক্ষার MCQ দেখুন</p>
+                </div>
+            </a>
+            <a href="cq.html" class="menu-item">
+                <div class="icon">💡</div>
+                <div>
+                    <h2>CQ প্রশ্ন</h2>
+                    <p>বোর্ডের সৃজনশীল প্রশ্ন ও উত্তর</p>
+                </div>
+            </a>
+            <a href="quiz.html?level=easy" class="menu-item">
+                <div class="icon">🎯</div>
+                <div>
+                    <h2>সহজ কুইজ</h2>
+                    <p>বেসিক যাচাইয়ের জন্য দ্রুত কুইজ</p>
+                </div>
+            </a>
+            <a href="quiz.html?level=hard" class="menu-item">
+                <div class="icon">🧠</div>
+                <div>
+                    <h2>কঠিন কুইজ</h2>
+                    <p>এডভান্সড লেভেলের প্রস্তুতি নিন</p>
+                </div>
+            </a>
+           <a href="exam.html" class="menu-item">
+                <div class="icon">📝</div>
+                <div>
+                    <h2>MCQ পরীক্ষা</h2>
+                    <p>এডভান্সড লেভেলের প্রস্তুতি নেওয়ার জন্য পরীক্ষা দিন </p>
+                </div>
+            </a>
+             <a href="ai_note.html" class="menu-item">
+                <div class="icon">🤖</div>
+                <div>
+                    <h2>AI নোট</h2>
+                    <p>AI দিয়ে তৈরি অধ্যায়ের নোট</p>
+                </div>
+            </a>
+        </nav>
+    </main>
+
+    <footer>
+        <!-- ফুটারের লেখাকে লিঙ্কে পরিণত করা হয়েছে -->
+        <a href="nxalimrans.html">
+            <p>&copy; 2025 - ICT Chapter 4 ~ NX AL IMRAN S</p>
+        </a>
+    </footer>
+
+    <!-- নোটিশ দেখানোর জন্য HTML কোড -->
+    <div class="notice-overlay" id="noticeOverlay"></div>
+    <div class="notice-box" id="noticeBox">
+        <p>আমাদের ওয়েবসাইট এর তথ্য ভুল থাকতেও  পারে,  কোনো তথ্য ভুল থাকলে রিপোর্ট করতে পারেন।
+নিচে NX AL IMRAN S এ ক্লিক করে রিপোর্ট করতে পারবেন 🥰</p>
+        <button id="closeNoticeBtn">বুঝেছি</button>
+    </div>
+
+    <!-- নোটিশের কার্যকারিতার জন্য JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const noticeOverlay = document.getElementById('noticeOverlay');
+            const noticeBox = document.getElementById('noticeBox');
+            const closeNoticeBtn = document.getElementById('closeNoticeBtn');
+            
+            const NOTICE_KEY = 'noticeLastShown';
+            const TWENTY_FOUR_HOURS_IN_MS = 24 * 60 * 60 * 1000;
+
+            const lastShownTimestamp = localStorage.getItem(NOTICE_KEY);
+            const currentTime = new Date().getTime();
+
+            // চেক করে দেখা হচ্ছে যে শেষবার দেখানোর পর ২৪ ঘণ্টা পার হয়েছে কিনা
+            if (!lastShownTimestamp || (currentTime - lastShownTimestamp > TWENTY_FOUR_HOURS_IN_MS)) {
+                noticeOverlay.style.display = 'block';
+                noticeBox.style.display = 'block';
+            }
+
+            // নোটিশ বন্ধ করার ফাংশন
+            const closeNotice = () => {
+                noticeOverlay.style.display = 'none';
+                noticeBox.style.display = 'none';
+                // বর্তমান সময় localStorage-এ সেভ করা হচ্ছে
+                localStorage.setItem(NOTICE_KEY, new Date().getTime());
+            };
+
+            closeNoticeBtn.addEventListener('click', closeNotice);
+            noticeOverlay.addEventListener('click', closeNotice); // বক্সের বাইরে ক্লিক করলেও বন্ধ হবে
+        });
+    </script>
+</body>
+</html>
