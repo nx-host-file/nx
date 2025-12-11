@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সৃজনশীল প্রশ্ন</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background: #f7f8fa;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        main.container {
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .viewer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .item-list {
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
+        }
+        .item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .item:hover {
+            background: #ecf0f1;
+            transform: scale(1.03);
+        }
+        .image-viewer {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        .image-viewer img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CQ বোর্ড  প্রশ্ন ও উত্তর</h1>
+    </header>
+
+    <main class="container">
+        <div class="viewer-container">
+            <div id="itemList" class="item-list">
+                <!-- JS দিয়ে প্রশ্ন বোর্ড লিস্ট যুক্ত হবে -->
+            </div>
+         
+        </div>
+
+        <a href="index.html" style="text-align:center; display:block; margin-top: 2rem;">🏠 হোম পেজে ফিরে যান</a>
+    </main>
+    
+    <script>
+        // বোর্ড ডেটা
+        const cqBoards = [
+    { name: "সৃজনশীল প্রশ্ন—1", file: "CQ_JSON/1.json" },
+{ name: "সৃজনশীল প্রশ্ন—2", file: "CQ_JSON/2.json" },
+{ name: "সৃজনশীল প্রশ্ন—3", file: "CQ_JSON/3.json" },
+{ name: "সৃজনশীল প্রশ্ন—4", file: "CQ_JSON/4.json" },
+{ name: "সৃজনশীল প্রশ্ন—4", file: "CQ_JSON/5.json" },
+{ name: "কুমিল্লা বোর্ড ২০২৫", file: "CQ_JSON/cq_kumilla_2025.json" },
+{ name: "ময়মনসিংহ বোর্ড ২০২৫", file: "CQ_JSON/cq_mymensingh_2025.json" },
+{ name: "দিনাজপুর বোর্ড ২০২৫", file: "CQ_JSON/cq_dinajpur_2025.json" },
+{ name: "টাঙ্গাইল বোর্ড ২০২৫", file: "CQ_JSON/cq_tangail_2025.json" }
+         
+          ]; const listContainer = document.getElementById("itemList");
+
+        // বোর্ড লিস্ট তৈরি
+        cqBoards.forEach(board => {
+            const div = document.createElement("div");
+            div.className = "item";
+            div.textContent = board.name;
+            div.onclick = () => {
+                // ইমেজ না দেখিয়ে cq_not.html এ পাঠানো হবে
+                window.location.href = `cq_not.html?file=${encodeURIComponent(board.file)}&board=${encodeURIComponent(board.name)}`;
+            };
+            listContainer.appendChild(div);
+        });
+    </script>
+</body>
+</html>
