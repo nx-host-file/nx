@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>সৃজনশীল প্রশ্নের উত্তর</title>
+  <style>
+    body {
+      font-family: 'Noto Sans Bengali', sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 1.4rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    main {
+      max-width: 800px;
+      margin: 25px auto;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    .board-title {
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #27ae60;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .cq-item {
+      border-bottom: 1px dashed #ddd;
+      padding: 15px 0;
+    }
+
+    .question {
+      background: #eafaf1;
+      padding: 12px;
+      border-radius: 6px;
+      color: #145a32;
+      font-weight: 600;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .answer {
+      background: #f0f0f0;
+      padding: 12px;
+      border-radius: 6px;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background: #27ae60;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      transition: 0.2s;
+      font-size: 15px;
+    }
+
+    .back-btn:hover {
+      background: #219150;
+    }
+
+    .error {
+      color: red;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>সৃজনশীল প্রশ্নের উত্তর</header>
+
+  <main>
+    <div id="boardName" class="board-title">বোর্ডের নাম</div>
+
+    <div id="cq-container">লোড হচ্ছে...</div>
+
+    <a href="cq.html" class="back-btn">← অন্য বোর্ডে যান</a>
+  </main>
+
+  <script>
+    async function loadCQ() {
+      const params = new URLSearchParams(window.location.search);
+      const file = params.get("file");
+      let board = params.get("board");
+
+      // যদি বোর্ডের নাম না আসে, ফাইল নাম থেকে তৈরি হবে
+      if (!board && file) {
+        const cleanName = file
+          .split('/').pop()                 // শুধু ফাইল নামটা নেয়
+          .replace(/\.[^/.]+$/, "")         // এক্সটেনশন কেটে ফেলে
+          .replace(/_/g, " ");              // আন্ডারস্কোর থাকলে স্পেসে বদল
+        board = cleanName;
+      }
+
+      document.getElementById("boardName").textContent = board || "অজানা বোর্ড";
+      const container = document.getElementById("cq-container");
+
+      if (!file) {
+        container.innerHTML = "<p class='error'>⚠ কোনো CQ ফাইল পাওয়া যায়নি!</p>";
+        return;
+      }
+
+      try {
+        const res = await fetch(file);
+        if (!res.ok) throw new Error("ফাইল লোড ব্যর্থ হয়েছে");
+        const data = await res.json();
+
+        if (!Array.isArray(data) || data.length === 0) {
+          container.innerHTML = "<p class='error'>❌ এই বোর্ডে কোনো প্রশ্ন পাওয়া যায়নি।</p>";
+          return;
+        }
+
+        let html = "";
+        data.forEach((item, index) => {
+          html += `
+            <div class="cq-item">
+              <div class="question">প্রশ্ন ${index + 1}: ${item.question}</div>
+              <div class="answer">উত্তর: ${item.answer}</div>
+            </div>
+          `;
+        });
+        container.innerHTML = html;
+
+      } catch (err) {
+        container.innerHTML = `<p class='error'>⚠ ডেটা লোড ব্যর্থ হয়েছে: ${err.message}</p>`;
+      }
+    }
+
+    loadCQ();
+  </script>
+</body>
+</html>
