@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>জ্ঞান পরীক্ষা</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;700&display=swap');
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --selected-color: #28a745;
+            --timer-color: #ff4757;
+            --light-bg: #fdfdfd;
+            --dark-text: #333;
+            --light-text: #fff;
+            --border-color: #eaeaea;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: var(--dark-text);
+            padding: 20px;
+        }
+        
+        .quiz-wrapper {
+            background-color: var(--light-bg);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 750px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .screen {
+            display: none;
+        }
+
+        .screen.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        input[type="number"] {
+            width: 60%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        input[type="number"]:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.2);
+        }
+
+        .btn {
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            color: var(--light-text);
+            padding: 14px 35px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            font-family: 'Hind Siliguri', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        #quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        #question-counter { color: var(--primary-color); }
+        #question-timer { color: var(--timer-color); }
+        
+        .timer-bar-container {
+            width: 100%; height: 8px;
+            background-color: var(--border-color);
+            border-radius: 4px; margin-bottom: 25px; overflow: hidden;
+        }
+
+        #timer-bar {
+            height: 100%; width: 100%;
+            background: linear-gradient(90deg, var(--timer-color), #fbc531);
+            border-radius: 4px; transition: width 1s linear;
+        }
+
+        #question-text {
+            font-size: 1.5rem; font-weight: 500;
+            margin-bottom: 30px; line-height: 1.6;
+        }
+
+        .options { list-style: none; }
+        .option {
+            background-color: #f8f9fa;
+            border: 1px solid var(--border-color);
+            border-radius: 10px; padding: 18px; margin-bottom: 12px;
+            cursor: pointer; text-align: left;
+            transition: all 0.2s ease-in-out;
+        }
+        .option:hover {
+            border-color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+        .option.selected {
+            background-color: var(--selected-color);
+            color: var(--light-text);
+            border-color: var(--selected-color);
+            font-weight: 500;
+        }
+        .option.disabled { pointer-events: none; }
+
+        #result-details p { font-size: 1.2rem; margin: 15px 0; }
+        #result-details .correct { color: #2ecc71; }
+        #result-details .incorrect { color: #e74c3c; }
+
+        .wrong-answers { text-align: left; margin-top: 30px; }
+        .wrong-answer {
+            background-color: #fff2f2; border-left: 5px solid #e74c3c;
+            padding: 15px; border-radius: 8px; margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-wrapper">
+        <div id="start-screen" class="screen active">
+            <h1><i class="fas fa-brain"></i> জ্ঞান পরীক্ষা</h1>
+            <div class="input-group">
+                <label for="num-questions">আপনি কয়টি প্রশ্নের পরীক্ষা দিতে চান?</label>
+                <input type="number" id="num-questions" min="1" value="5">
+            </div>
+            <button class="btn" onclick="startQuiz()">শুরু করুন <i class="fas fa-arrow-right"></i></button>
+        </div>
+
+        <div id="quiz-screen" class="screen">
+            <div id="quiz-header">
+                <span id="question-counter"></span>
+                <span id="question-timer"></span>
+            </div>
+            <div class="timer-bar-container">
+                <div id="timer-bar"></div>
+            </div>
+            <div id="question-container">
+                <p id="question-text"></p>
+                <ul id="options-list" class="options"></ul>
+            </div>
+        </div>
+
+        <div id="result-screen" class="screen">
+            <h1><i class="fas fa-poll"></i> পরীক্ষার ফলাফল</h1>
+            <div id="result-details"></div>
+            <div id="wrong-answers-container" class="wrong-answers"></div>
+             <a href="index.html" style="text-align:center; display:block; margin-top: 2rem;">হোম পেজে ফিরে যান</a>
+   
+        </div>
+    </div>
+
+    <script>
+        const screens = document.querySelectorAll('.screen');
+        const numQuestionsInput = document.getElementById('num-questions');
+        const questionCounter = document.getElementById('question-counter');
+        const questionTimer = document.getElementById('question-timer');
+        const timerBar = document.getElementById('timer-bar');
+        const questionText = document.getElementById('question-text');
+        const optionsList = document.getElementById('options-list');
+        const resultDetails = document.getElementById('result-details');
+        const wrongAnswersContainer = document.getElementById('wrong-answers-container');
+
+        let allQuestions = [];
+        let quizQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let questionInterval;
+        let timeLeft = 60;
+        
+        function switchScreen(screenId) {
+            screens.forEach(screen => {
+                screen.classList.remove('active');
+            });
+            document.getElementById(screenId).classList.add('active');
+        }
+
+        window.onload = async () => {
+            allQuestions = await fetchQuestions();
+            if(allQuestions) {
+                numQuestionsInput.max = allQuestions.length;
+            }
+        };
+
+        async function fetchQuestions() {
+            try {
+                const response = await fetch('json/exam.json');
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('প্রশ্ন লোড করতে সমস্যা হয়েছে:', error);
+                return null;
+            }
+        }
+
+        // --- নতুন ফাংশন ---
+        // Fisher-Yates shuffle algorithm to randomize the questions array
+        function shuffle(array) {
+            let currentIndex = array.length, randomIndex;
+            // While there remain elements to shuffle.
+            while (currentIndex != 0) {
+                // Pick a remaining element.
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex--;
+                // And swap it with the current element.
+                [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+            }
+            return array;
+        }
+        
+        function startQuiz() {
+            const numQuestions = parseInt(numQuestionsInput.value);
+            if (numQuestions > 0 && numQuestions <= allQuestions.length) {
+                
+                // --- পরিবর্তিত অংশ ---
+                // First, shuffle a copy of all questions, then slice the requested number
+                const shuffledQuestions = shuffle([...allQuestions]);
+                quizQuestions = shuffledQuestions.slice(0, numQuestions);
+                // --- পরিবর্তন শেষ ---
+
+                userAnswers = new Array(quizQuestions.length).fill(null);
+                currentQuestionIndex = 0;
+                switchScreen('quiz-screen');
+                displayQuestion();
+            } else {
+                alert(`অনুগ্রহ করে ১ থেকে ${allQuestions.length} এর মধ্যে একটি সংখ্যা দিন।`);
+            }
+        }
+        
+        function startQuestionTimer() {
+            timeLeft = 60;
+            updateTimerDisplay();
+            questionInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                if (timeLeft < 0) {
+                    clearInterval(questionInterval);
+                    handleTimeout();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            questionTimer.innerHTML = `<i class="far fa-clock"></i> সময় বাকি: ${timeLeft}s`;
+            timerBar.style.width = `${(timeLeft / 60) * 100}%`;
+        }
+
+        function handleTimeout() {
+            userAnswers[currentQuestionIndex] = null;
+            disableOptions();
+            setTimeout(goToNextQuestion, 1000);
+        }
+
+        function displayQuestion() {
+            if (currentQuestionIndex < quizQuestions.length) {
+                clearInterval(questionInterval);
+                const question = quizQuestions[currentQuestionIndex];
+                questionCounter.innerHTML = `<i class="fas fa-question-circle"></i> প্রশ্ন: ${currentQuestionIndex + 1}/${quizQuestions.length}`;
+                questionText.textContent = question.question;
+                optionsList.innerHTML = '';
+                question.options.forEach(option => {
+                    const li = document.createElement('li');
+                    li.textContent = option;
+                    li.classList.add('option');
+                    li.onclick = () => selectOption(li, option);
+                    optionsList.appendChild(li);
+                });
+                startQuestionTimer();
+            } else {
+                showResult();
+            }
+        }
+        
+        function selectOption(element, selectedOption) {
+            clearInterval(questionInterval);
+            disableOptions();
+            element.classList.add('selected');
+            userAnswers[currentQuestionIndex] = selectedOption;
+            setTimeout(goToNextQuestion, 1000);
+        }
+
+        function disableOptions() {
+            Array.from(optionsList.children).forEach(option => {
+                option.classList.add('disabled');
+            });
+        }
+
+        function goToNextQuestion() {
+            currentQuestionIndex++;
+            displayQuestion();
+        }
+
+        function showResult() {
+            switchScreen('result-screen');
+            let correctAnswers = 0;
+            quizQuestions.forEach((question, index) => {
+                if (userAnswers[index] === question.answer) correctAnswers++;
+            });
+            const wrongAnswers = quizQuestions.length - correctAnswers;
+
+            resultDetails.innerHTML = `
+                <p><strong>মোট প্রশ্ন:</strong> ${quizQuestions.length}</p>
+                <p class="correct"><strong><i class="fas fa-check-circle"></i> সঠিক উত্তর:</strong> ${correctAnswers}</p>
+                <p class="incorrect"><strong><i class="fas fa-times-circle"></i> ভুল উত্তর:</strong> ${wrongAnswers}</p>
+            `;
+            displayWrongAnswers();
+        }
+
+        function displayWrongAnswers() {
+            wrongAnswersContainer.innerHTML = '<h3>ভুল উত্তরগুলোর সঠিক ব্যাখ্যা:</h3>';
+            quizQuestions.forEach((question, index) => {
+                if (userAnswers[index] !== question.answer) {
+                    const userAnswerText = userAnswers[index] ? `"${userAnswers[index]}"` : "সময় শেষ/উত্তর দেননি";
+                    const wrongAnswerDiv = document.createElement('div');
+                    wrongAnswerDiv.classList.add('wrong-answer');
+                    wrongAnswerDiv.innerHTML = `
+                        <p><strong>প্রশ্ন:</strong> ${question.question}</p>
+                        <p><strong>আপনার উত্তর:</strong> ${userAnswerText}</p>
+                        <p><strong>সঠিক উত্তর:</strong> ${question.answer}</p>
+                        <p><strong>ব্যাখ্যা:</strong> ${question.explanation}</p>
+                    `;
+                    wrongAnswersContainer.appendChild(wrongAnswerDiv);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
