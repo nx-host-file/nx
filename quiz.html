@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>কুইজ চলছে...</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1 id="quizTitle">ICT কুইজ</h1>
+    </header>
+
+    <main class="container">
+        <div class="quiz-box">
+            <!-- Score Card View -->
+            <div id="score-card" style="display:none;">
+                 <h2>ফলাফল</h2>
+                 <p id="scoreMessage" class="score-message"></p>
+                 <h3>এই রাউন্ডের স্কোর: <span id="currentScore">0</span></h3>
+                 <h4>আপনার সর্বমোট স্কোর: <span id="totalScore">0</span></h4>
+                 <button class="btn" id="playAgain">আবার খেলুন</button>
+            </div>
+            
+            <!-- Quiz View -->
+            <div id="quiz-view">
+                <div class="progress-container">
+                    <div id="progressBar"></div>
+                </div>
+                <p id="progressText" class="progress-text"></p>
+                 <h3 id="question">প্রশ্ন লোড হচ্ছে...</h3>
+                 <div class="options-container" id="options-container">
+                     <!-- Options will be loaded by JS -->
+                 </div>
+            </div>
+        </div>
+        <a href="index.html" style="text-align:center; display:block; margin-top: 2rem;">হোম পেজে ফিরে যান</a>
+    </main>
+
+    <script src="js/quiz.js"></script>
+</body>
+</html>
