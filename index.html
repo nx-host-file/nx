@@ -3,172 +3,428 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICT Chapter 4</title>
-    <link rel="stylesheet" href="css/style.css">
-    
-    <!-- নোটিশ বক্সের জন্য প্রয়োজনীয় স্টাইল -->
+    <title>HSC ICT</title>
     <style>
-        .notice-overlay {
-            position: fixed;
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #4a90e2;
+            --primary-dark: #357ABD;
+            --background-light: #f0f2f5;
+            --card-background: #ffffff;
+            --text-primary: #1c1e21;
+            --text-secondary: #555;
+            --shadow-light: rgba(0, 0, 0, 0.06);
+            --shadow-hover: rgba(74, 144, 226, 0.2);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Noto Sans Bengali', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--card-background);
+            box-shadow: 0 10px 30px var(--shadow-light);
+            min-height: 100vh;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 18px 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: #ffffff;
+            position: sticky;
             top: 0;
-            left: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .header-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .slider-container {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            background-color: #e0e0e0;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
+        }
+        .slide {
+            display: none;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 1000;
-            display: none; /* প্রাথমিকভাবে লুকানো থাকবে */
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
         }
-        .notice-box {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 1001;
-            width: 90%;
-            max-width: 500px;
+        .slide.active {
+            display: block;
+            opacity: 1;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .book-section {
+            padding: 30px 20px;
+        }
+        .book-section h2 {
             text-align: center;
-            display: none; /* প্রাথমিকভাবে লুকানো থাকবে */
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+            position: relative;
+            padding-bottom: 15px;
         }
-        .notice-box p {
-            margin: 0 0 20px;
-            font-size: 1.1rem;
-            color: #333;
+        .book-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
         }
-        .notice-box button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
+
+        .chapter-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px; /* আইটেমগুলোর মধ্যে স্পেস */
         }
-        .notice-box button:hover {
-            background-color: #0056b3;
-        }
-        /* ফুটারের লিঙ্কের স্টাইল */
-        footer a {
+        .chapter-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-background);
+            padding: 20px;
+            border-radius: 12px;
             text-decoration: none;
-            color: inherit; /* প্যারেন্টের কালার ব্যবহার করবে */
+            color: var(--text-primary);
+            border: 1px solid #e7e7e7;
+            border-bottom: 4px solid #d8dce1;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px var(--shadow-light);
         }
+        .chapter-item:not(.locked):hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 20px var(--shadow-hover);
+            transform: translateY(-6px) scale(1.02); 
+        }
+        .chapter-item.locked {
+            cursor: pointer;
+            color: #888;
+        }
+        .chapter-item.locked:hover {
+            border-color: #e57373; /* Reddish border on hover for locked items */
+            box-shadow: 0 10px 20px rgba(229, 115, 115, 0.2);
+            transform: translateY(-6px) scale(1.02);
+        }
+
+        .chapter-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .open-button {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .chapter-item.locked .open-button {
+             color: #aaa;
+        }
+        .open-button::after {
+            content: '›';
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+
+        /* ফুটার স্টাইল */
+        .footer {
+            text-align: center;
+            padding: 25px 15px;
+            background-color: #f0f2f5;
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+        .footer a {
+            color: #555;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* নোটিশের জন্য স্টাইল */
+        .notice-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex; justify-content: center; align-items: center; z-index: 1000;
+            opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s;
+        }
+        .notice-overlay.show { opacity: 1; visibility: visible; }
+        .notice-modal {
+            background: #fff; padding: 25px; border-radius: 12px; max-width: 90%;
+            width: 400px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            position: relative; transform: scale(0.9); transition: transform 0.3s;
+            text-align: center; /* Center aligning content in modal */
+        }
+        .notice-overlay.show .notice-modal { transform: scale(1); }
+        .notice-modal .close-btn {
+            position: absolute; top: 10px; right: 15px; font-size: 24px;
+            font-weight: bold; cursor: pointer; border: none; background: none; color: #777;
+        }
+        .notice-modal h3 { margin-top: 0; color: #333; }
+        .notice-modal p { color: #555; line-height: 1.6; }
+        .notice-modal .notice-link {
+            display: inline-block; margin-top: 15px; padding: 10px 18px;
+            background-color: var(--primary-color); color: #fff; text-decoration: none;
+            border-radius: 8px; transition: background-color 0.2s;
+        }
+        .notice-modal .notice-link:hover { background-color: var(--primary-dark); }
     </style>
 </head>
 <body>
-    <header>
-        <h1>ICT - ৪র্থ অধ্যায়</h1>
-        <p>পড়া, অনুশীলন এবং প্রস্তুতি - সবকিছু এক জায়গায়</p>
-    </header>
 
-    <main class="container">
-        <nav class="main-menu">
-            <a href="pdf.html" class="menu-item">
-                <div class="icon">📚</div>
-                <div>
-                    <h2>সম্পূর্ণ অধ্যায় PDF </h2>
-                    <p>অধ্যায়ের প্রতিটি পৃষ্ঠা বিস্তারিত পড়ুন</p>
-                </div>
-            </a>
-            <a href="dorkari.html" class="menu-item">
-                <div class="icon">✨</div>
-                <div>
-                    <h2>দরকারি তথ্য</h2>
-                    <p>গুরুত্বপূর্ণ তথ্যের সংগ্রহ</p>
-                </div>
-            </a>
-            <a href="board_mcq.html" class="menu-item">
-                <div class="icon">📝</div>
-                <div>
-                    <h2>বোর্ড MCQ</h2>
-                    <p>সকল বোর্ড পরীক্ষার MCQ দেখুন</p>
-                </div>
-            </a>
-            <a href="cq.html" class="menu-item">
-                <div class="icon">💡</div>
-                <div>
-                    <h2>CQ প্রশ্ন</h2>
-                    <p>বোর্ডের সৃজনশীল প্রশ্ন ও উত্তর</p>
-                </div>
-            </a>
-            <a href="quiz.html?level=easy" class="menu-item">
-                <div class="icon">🎯</div>
-                <div>
-                    <h2>সহজ কুইজ</h2>
-                    <p>বেসিক যাচাইয়ের জন্য দ্রুত কুইজ</p>
-                </div>
-            </a>
-            <a href="quiz.html?level=hard" class="menu-item">
-                <div class="icon">🧠</div>
-                <div>
-                    <h2>কঠিন কুইজ</h2>
-                    <p>এডভান্সড লেভেলের প্রস্তুতি নিন</p>
-                </div>
-            </a>
-           <a href="exam.html" class="menu-item">
-                <div class="icon">📝</div>
-                <div>
-                    <h2>MCQ পরীক্ষা</h2>
-                    <p>এডভান্সড লেভেলের প্রস্তুতি নেওয়ার জন্য পরীক্ষা দিন </p>
-                </div>
-            </a>
-             <a href="ai_note.html" class="menu-item">
-                <div class="icon">🤖</div>
-                <div>
-                    <h2>AI নোট</h2>
-                    <p>AI দিয়ে তৈরি অধ্যায়ের নোট</p>
-                </div>
-            </a>
-        </nav>
-    </main>
+    <div class="container">
+        <header class="header">
+            <span class="header-title">তথ্য ও যোগাযোগ প্রযুক্তি </span>
+        </header>
 
-    <footer>
-        <!-- ফুটারের লেখাকে লিঙ্কে পরিণত করা হয়েছে -->
-        <a href="nxalimrans.html">
-            <p>&copy; 2025 - ICT Chapter 4 ~ NX AL IMRAN S</p>
+        <div class="slider-container" id="slider-container">
+            <!-- ব্যানার এখানে ডায়নামিকভাবে লোড হবে -->
+        </div>
+
+        <main class="book-section">
+            <h2>ICT</h2>
+            <div class="chapter-list">
+                <a href="javascript:void(0);" onclick="showPremiumNotice()" class="chapter-item locked">
+                    <span class="chapter-name">🔒 ১. বিশ্ব ও বাংলাদেশ প্রেক্ষিত</span>
+                    <span class="open-button">খুলুন</span>
+                </a>
+                <a href="javascript:void(0);" onclick="showPremiumNotice()" class="chapter-item locked">
+                    <span class="chapter-name">🔒 ২. কমিউনিকেশন সিস্টেম ও নেটওয়ার্কিং</span>
+                    <span class="open-button">খুলুন</span>
+                </a>
+                <a href="javascript:void(0);" onclick="showPremiumNotice()" class="chapter-item locked">
+                    <span class="chapter-name">🔒 ৩. সংখ্যা পদ্ধতি ও ডিজিটাল ডিভাইস</span>
+                    <span class="open-button">খুলুন</span>
+                </a>
+                <a href="./ict4.html" class="chapter-item">
+                    <span class="chapter-name">৪. ওয়েব ডিজাইন পরিচিতি এবং HTML</span>
+                    <span class="open-button">খুলুন</span>
+                </a>
+                <a href="javascript:void(0);" onclick="showPremiumNotice()" class="chapter-item locked">
+                    <span class="chapter-name">🔒 ৫. প্রোগ্রামিং ভাষা ও সি- প্রোগ্রাম</span>
+                    <span class="open-button">খুলুন</span>
+                </a>
+                <a href="javascript:void(0);" onclick="showPremiumNotice()" class="chapter-item locked">
+                    <span class="chapter-name">🔒 ৬. ডেটাবেজ ম্যানেজমেন্ট সিস্টেম</span>
+                    <span class="open-button">খুলুন</span>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- নতুন ফুটার -->
+    <footer class="footer">
+        <a href="https://www.nxalimrans.site" target="_blank" rel="noopener noreferrer">
+            © 2025 - ICT Chapter 4 ~ NX AL IMRAN S
         </a>
     </footer>
 
-    <!-- নোটিশ দেখানোর জন্য HTML কোড -->
-    <div class="notice-overlay" id="noticeOverlay"></div>
-    <div class="notice-box" id="noticeBox">
-        <p>আমাদের ওয়েবসাইট এর তথ্য ভুল থাকতেও  পারে,  কোনো তথ্য ভুল থাকলে রিপোর্ট করতে পারেন।
-নিচে NX AL IMRAN S এ ক্লিক করে রিপোর্ট করতে পারবেন 🥰</p>
-        <button id="closeNoticeBtn">বুঝেছি</button>
-    </div>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
-    <!-- নোটিশের কার্যকারিতার জন্য JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const noticeOverlay = document.getElementById('noticeOverlay');
-            const noticeBox = document.getElementById('noticeBox');
-            const closeNoticeBtn = document.getElementById('closeNoticeBtn');
+        // আপনার Firebase প্রজেক্টের কনফিগারেশন এখানে যোগ করুন
+        const firebaseConfig = {
+            apiKey: "AIzaSyD811WGzH1L8SGepxu38l7fCULeKAd5nKU",
+            authDomain: "imrans-86e5d.firebaseapp.com",
+            databaseURL: "https://imrans-86e5d-default-rtdb.firebaseio.com",
+            projectId: "imrans-86e5d",
+            storageBucket: "imrans-86e5d.firebasestorage.app",
+            messagingSenderId: "352101484913",
+            appId: "1:352101484913:web:2351365d3788511485ced0",
+            measurementId: "G-XV6719TWJ1"
+        };
+
+
+        // Firebase শুরু করুন
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // ব্যানার লোড এবং স্লাইডার
+        const sliderContainer = document.getElementById('slider-container');
+        let slideIndex = 0;
+        let slides = [];
+        let slideInterval;
+
+        function showSlides() {
+            if (slides.length === 0) return;
+            slides.forEach(slide => slide.classList.remove("active"));
             
-            const NOTICE_KEY = 'noticeLastShown';
-            const TWENTY_FOUR_HOURS_IN_MS = 24 * 60 * 60 * 1000;
-
-            const lastShownTimestamp = localStorage.getItem(NOTICE_KEY);
-            const currentTime = new Date().getTime();
-
-            // চেক করে দেখা হচ্ছে যে শেষবার দেখানোর পর ২৪ ঘণ্টা পার হয়েছে কিনা
-            if (!lastShownTimestamp || (currentTime - lastShownTimestamp > TWENTY_FOUR_HOURS_IN_MS)) {
-                noticeOverlay.style.display = 'block';
-                noticeBox.style.display = 'block';
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
             }
+            slides[slideIndex - 1].classList.add("active");
+        }
 
-            // নোটিশ বন্ধ করার ফাংশন
-            const closeNotice = () => {
-                noticeOverlay.style.display = 'none';
-                noticeBox.style.display = 'none';
-                // বর্তমান সময় localStorage-এ সেভ করা হচ্ছে
-                localStorage.setItem(NOTICE_KEY, new Date().getTime());
+        database.ref('banners').on('value', (snapshot) => {
+            sliderContainer.innerHTML = '';
+            slides = [];
+            clearInterval(slideInterval);
+
+            const banners = snapshot.val();
+            if (banners) {
+                Object.keys(banners).forEach((key) => {
+                    const banner = banners[key];
+                    const slideElement = document.createElement('a');
+                    slideElement.href = banner.targetUrl;
+                    slideElement.target = '_blank';
+                    slideElement.classList.add('slide');
+                    
+                    const img = document.createElement('img');
+                    img.src = banner.imageUrl;
+                    img.alt = `ব্যানার`;
+                    slideElement.appendChild(img);
+                    sliderContainer.appendChild(slideElement);
+                    slides.push(slideElement);
+                });
+
+                if (slides.length > 0) {
+                    slides[0].classList.add('active');
+                    slideIndex = 1;
+                    if (slides.length > 1) {
+                       slideInterval = setInterval(showSlides, 5000);
+                    }
+                }
+            }
+        });
+
+        // নোটিশ লোড এবং প্রদর্শন
+        const viewedNoticesKey = 'viewedNotices';
+        const viewedNotices = JSON.parse(localStorage.getItem(viewedNoticesKey)) || [];
+
+        database.ref('notices').on('value', (snapshot) => {
+            const notices = snapshot.val();
+            if (notices) {
+                const noticeKeys = Object.keys(notices);
+                for (let i = 0; i < noticeKeys.length; i++) {
+                    const key = noticeKeys[i];
+                    if (!viewedNotices.includes(key)) {
+                        const notice = notices[key];
+                        showNotice(key, notice);
+                        break;
+                    }
+                }
+            }
+        });
+
+        function showNotice(key, notice) {
+            const noticeOverlay = document.createElement('div');
+            noticeOverlay.className = 'notice-overlay';
+            
+            const noticeModal = document.createElement('div');
+            noticeModal.className = 'notice-modal';
+
+            const closeButton = document.createElement('button');
+            closeButton.className = 'close-btn';
+            closeButton.innerHTML = '&times;';
+            closeButton.onclick = () => {
+                noticeOverlay.classList.remove('show');
+                setTimeout(() => document.body.removeChild(noticeOverlay), 300);
+                
+                viewedNotices.push(key);
+                localStorage.setItem(viewedNoticesKey, JSON.stringify(viewedNotices));
             };
 
-            closeNoticeBtn.addEventListener('click', closeNotice);
-            noticeOverlay.addEventListener('click', closeNotice); // বক্সের বাইরে ক্লিক করলেও বন্ধ হবে
-        });
+            const title = document.createElement('h3');
+            title.innerText = notice.title;
+
+            const content = document.createElement('p');
+            content.innerText = notice.content;
+
+            noticeModal.appendChild(closeButton);
+            noticeModal.appendChild(title);
+            noticeModal.appendChild(content);
+
+            if (notice.link) {
+                const link = document.createElement('a');
+                link.href = notice.link;
+                link.target = '_blank';
+                link.className = 'notice-link';
+                link.innerText = 'ওপেন করুন';
+                noticeModal.appendChild(link);
+            }
+
+            noticeOverlay.appendChild(noticeModal);
+            document.body.appendChild(noticeOverlay);
+            
+            setTimeout(() => noticeOverlay.classList.add('show'), 50);
+        }
+
+        // *** নতুন ফাংশন: প্রিমিয়াম নোটিশ দেখানোর জন্য ***
+        function showPremiumNotice() {
+            const noticeOverlay = document.createElement('div');
+            noticeOverlay.className = 'notice-overlay';
+            
+            const noticeModal = document.createElement('div');
+            noticeModal.className = 'notice-modal';
+
+            const closeButton = document.createElement('button');
+            closeButton.className = 'close-btn';
+            closeButton.innerHTML = '&times;';
+            closeButton.onclick = () => {
+                noticeOverlay.classList.remove('show');
+                setTimeout(() => document.body.removeChild(noticeOverlay), 300);
+            };
+
+            const title = document.createElement('h3');
+            title.innerText = 'প্রিমিয়াম প্রয়োজন';
+
+            const content = document.createElement('p');
+            content.innerText = 'প্রিমিয়াম ছাড়া বাকি অধ্যায় গুলো পড়া যাবে না। সম্পূর্ণ অ্যাক্সেস পেতে প্রিমিয়াম কিনুন।';
+
+            const link = document.createElement('a');
+            link.href = 'https://facebook.com/nxalimrans';
+            link.target = '_blank';
+            link.className = 'notice-link';
+            link.innerText = 'যোগাযোগ করুন';
+
+            noticeModal.appendChild(closeButton);
+            noticeModal.appendChild(title);
+            noticeModal.appendChild(content);
+            noticeModal.appendChild(link);
+
+            noticeOverlay.appendChild(noticeModal);
+            document.body.appendChild(noticeOverlay);
+            
+            setTimeout(() => noticeOverlay.classList.add('show'), 50);
+        }
     </script>
+
 </body>
 </html>
