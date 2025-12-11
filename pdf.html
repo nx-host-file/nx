@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICT PDF</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        
+        .book-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem; /* বইগুলোর মধ্যে ফাঁকা জায়গা */
+            justify-content: center; /* বইগুলো মাঝখানে দেখাবে */
+            padding: 2rem;
+        }
+
+        .book-item {
+            width: 200px; /* প্রতিটি বইয়ের প্রস্থ */
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .book-item:hover {
+            transform: scale(1.05); /* মাউস নিলে হালকা বড় হবে */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .book-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .book-item p {
+            margin-top: 0.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ICT 4 অধ্যায় PDF</h1>
+    </header>
+    <main class="container">
+        
+        <div class="book-gallery">
+            
+            <a href="PDF/ict4humayon.pdf" class="book-item" target="_blank">
+                <img src="https://i.ibb.co/CsQvPrVg/images.jpg" alt="বাংলা ১ম পত্র বই">
+                <p>স্বপন </p>
+            </a>
+
+            
+            <a href="PDF/ict4imran.pdf" class="book-item" target="_blank">
+                <img src="https://i.ibb.co/CsQvPrVg/images.jpg" alt="ইংরেজি ২য় পত্র বই">
+                <p>ইমরান </p>
+            </a>
+
+    
+
+            <!-- আপনি যত খুশি বই যোগ করতে উপরের অংশটুকু কপি করে ব্যবহার করুন -->
+
+        </div>
+
+        <a href="index.html" style="text-align:center; display:block; margin-top: 2rem;">হোম পেজে ফিরে যান</a>
+    </main>
+</body>
+</html>
