@@ -1,0 +1,722 @@
+[
+    {
+        "question": "HTML এর পূর্ণরূপ কোনটি?",
+        "options": [
+            "Hyper Text Markup Language",
+            "High Text Markup Language",
+            "Hyper Text Language",
+            "Hyper Term Markup Language"
+        ],
+        "answer": "Hyper Text Markup Language"
+    },
+    {
+        "question": "HTML এর আবিষ্কারকের নাম কী?",
+        "options": [
+            "টিম বার্নার্স-লি",
+            "এলান টুরিং",
+            "লিবনিজ",
+            "আডাবাইরন"
+        ],
+        "answer": "টিম বার্নার্স-লি"
+    },
+    {
+        "question": "ওয়েবপেজ তৈরিতে কোন ভাষা ব্যবহৃত হয়?",
+        "options": [
+            "python",
+            "html",
+            "cobol",
+            "Fortran"
+        ],
+        "answer": "html"
+    },
+    {
+        "question": "মার্ক আপ ল্যাঙ্গুয়েজ কোনটি?",
+        "options": [
+            "Python",
+            "PHP",
+            "JAVA",
+            "HTML"
+        ],
+        "answer": "HTML"
+    },
+    {
+        "question": "HTML ট্যাগের চিহ্ন কোনটি?",
+        "options": [
+            "[ ]",
+            "{ }",
+            "( )",
+            "< >"
+        ],
+        "answer": "< >"
+    },
+    {
+        "question": "নিচের কোনটি HTML এর ending ট্যাগের চিহ্নকে নির্দেশ করে?",
+        "options": [
+            "</ >",
+            "< // >",
+            "[ ]",
+            "< >"
+        ],
+        "answer": "</ >"
+    },
+    {
+        "question": "HTML ফাইলের এক্সটেনশন কোনটি হবে?",
+        "options": [
+            ".txt",
+            ".net",
+            ".html",
+            ".php"
+        ],
+        "answer": ".html"
+    },
+    {
+        "question": "html ওয়েব পেইজ তৈরির জন্য ফাইলের এক্সটেনশন হচ্ছে-",
+        "options": [
+            ". html",
+            ". py",
+            ". txt",
+            ". htmi"
+        ],
+        "answer": ". html"
+    },
+    {
+        "question": "URL দ্বারা কোনটি প্রকাশ করা হয়?",
+        "options": [
+            "ইন্টারনেট",
+            "ডোমেইন নেম",
+            "ইয়াহু",
+            "ফেসবুক"
+        ],
+        "answer": "ডোমেইন নেম"
+    },
+    {
+        "question": "কোনটি ওয়েব ব্রাউজার?",
+        "options": [
+            "গুগল",
+            "ইয়াহু",
+            "মজিলা",
+            "বিং"
+        ],
+        "answer": "মজিলা"
+    },
+    {
+        "question": "HTTP এর পূর্ণরূপ কী?",
+        "options": [
+            "Higher Text Transfer Protocol",
+            "Hyper Text Transfer Protocol",
+            "Hyper Text Transfer Protocol",
+            "Hyper Transfer Text Protocol"
+        ],
+        "answer": "Hyper Text Transfer Protocol"
+    },
+    {
+        "question": "প্রতিটি সাইটের স্বতন্ত্র নামকে কী বলে?",
+        "options": [
+            "ফটোশপ",
+            "ডোমেইন",
+            "HTML",
+            "সাইট ডিজাইন"
+        ],
+        "answer": "ডোমেইন"
+    },
+    {
+        "question": "একটি পেজের সাথে অন্য পেজের সংযোগকে HTML ভাষায় কী বলে?",
+        "options": [
+            "Connection",
+            "Hyperlink",
+            "Link",
+            "Addition"
+        ],
+        "answer": "Hyperlink"
+    },
+    {
+        "question": "ISP এর পূর্ণ নাম কী?",
+        "options": [
+            "Internet Super Power",
+            "Internet Server Provider",
+            "Internet Server Programme",
+            "Internet Service Provide"
+        ],
+        "answer": "Internet Service Provide"
+    },
+    {
+        "question": "ওয়েবপেজের এড্রেসকে কী বলে?",
+        "options": [
+            "URL",
+            "HTTP",
+            "HTML",
+            "WWW"
+        ],
+        "answer": "URL"
+    },
+    {
+        "question": "Hyper Text Markup Language এর সাহায্যে কী তৈরি করা যায়?",
+        "options": [
+            "URL",
+            "http",
+            "TCP/IP",
+            "Web Page"
+        ],
+        "answer": "Web Page"
+    },
+    {
+        "question": "HTML-এর মাধ্যমে কোডিং করতে কী ব্যবহার করা হয়?",
+        "options": [
+            "নোটপ্যাড",
+            "এমএস ওয়ার্ড",
+            "টেক্সট এডিট",
+            "মাউস প্যাড"
+        ],
+        "answer": "নোটপ্যাড"
+    },
+    {
+        "question": "বাংলা সার্চ ইঞ্জিন-",
+        "options": [
+            "পিপীলিকা",
+            "ইয়াহু",
+            "গুগল",
+            "গুগল প্লাস"
+        ],
+        "answer": "পিপীলিকা"
+    },
+    {
+        "question": "Google.com কী?",
+        "options": [
+            "Engine",
+            "Search Engine",
+            "Protocol",
+            "IP Address"
+        ],
+        "answer": "Search Engine"
+    },
+    {
+        "question": "ওয়েব ব্রাউজার হলো-",
+        "options": [
+            "গুগল ক্রোম",
+            "ইউটিউব",
+            "ফেইসবুক",
+            "কোনটি নয়।"
+        ],
+        "answer": "গুগল ক্রোম"
+    },
+    {
+        "question": "কোনটি ওয়েব ব্রাউজার?",
+        "options": [
+            "ফায়ারফক্স",
+            "মাইক্রোসফট আউটলুক",
+            "ইয়াহু ম্যাসেঞ্জার",
+            "গুগল ড্রপ বক্স"
+        ],
+        "answer": "ফায়ারফক্স"
+    },
+    {
+        "question": "ওয়েব পেইজের অ্যাড্রেসকে কী বলে?",
+        "options": [
+            "URL",
+            "HTTP",
+            "HTML",
+            "www"
+        ],
+        "answer": "URL"
+    },
+    {
+        "question": "ওয়েব পেইজ পরিদর্শন করাকে কী বলে?",
+        "options": [
+            "ওয়েব ব্রাউজিং",
+            "ওয়েবসাইট",
+            "ব্রাউজিং নেট",
+            "ওয়েব সার্ফিং"
+        ],
+        "answer": "ওয়েব ব্রাউজিং"
+    },
+    {
+        "question": "এইচটিএমএল এ <p> ও </p> ট্যাগ ব্যবহার করা হয়",
+        "options": [
+            "প্যারাগ্রাফ তৈরির জন্য",
+            "নতুন পেজ তৈরির জন্য",
+            "লেখা বোল্ড করার জন্য",
+            "প্রোগ্রাম শুরু করার জন্য"
+        ],
+        "answer": "প্যারাগ্রাফ তৈরির জন্য"
+    },
+    {
+        "question": "এইচটিএমএল এ <b> ও </b> ট্যাগ ব্যবহার করা হয়",
+        "options": [
+            "প্যারাগ্রাফ তৈরির জন্য",
+            "নতুন পেজ তৈরির জন্য",
+            "লেখা বোল্ড করার জন্য",
+            "কোনটি নয়"
+        ],
+        "answer": "লেখা বোল্ড করার জন্য"
+    },
+    {
+        "question": "color = \"#FFFFFF\" দিয়ে কোন রং প্রদর্শিত হবে?",
+        "options": [
+            "কালো",
+            "লাল",
+            "সাদা",
+            "নীল"
+        ],
+        "answer": "সাদা"
+    },
+    {
+        "question": "কোনটি কালো রং নির্দেশক?",
+        "options": [
+            "\"#BBBBBB\"",
+            "\"#EEEEEE\"",
+            "\"#000000\"",
+            "\"#FFFFFF\""
+        ],
+        "answer": "\"#000000\""
+    },
+    {
+        "question": "Mark up Language বলতে বোঝায়-",
+        "options": [
+            "Java",
+            "Python",
+            "SQL",
+            "HTML"
+        ],
+        "answer": "HTML"
+    },
+    {
+        "question": "কোনটি ইমেজ ট্যাগ?",
+        "options": [
+            "<b>",
+            "<big>",
+            "<img>",
+            "<ol>"
+        ],
+        "answer": "<img>"
+    },
+    {
+        "question": "টেবিলের ডেটার জন্য কোন ট্যাগটি?",
+        "options": [
+            "<TR>",
+            "<TD>",
+            "<TH>",
+            "<BR>"
+        ],
+        "answer": "<TD>"
+    },
+    {
+        "question": "টেবিল রো এর জন্য কোন ট্যাগ ব্যবহার করা হয়?",
+        "options": [
+            "<TR>",
+            "<TD>",
+            "<TH>",
+            "<BR>"
+        ],
+        "answer": "<TR>"
+    },
+    {
+        "question": "<td> কী চিহ্নিত করে?",
+        "options": [
+            "টেবিলের সেলকে",
+            "টেবিলের সারিকে",
+            "টেবিলের হেডারকে",
+            "টেবিলের ক্যাপশনকে"
+        ],
+        "answer": "টেবিলের সেলকে"
+    },
+    {
+        "question": "ABC-এ ক্লিক করলে কোন ট্যাগের মাধ্যমে www.google.com খুলবে?",
+        "options": [
+            "<a>",
+            "<b>",
+            "<p>",
+            "<i>"
+        ],
+        "answer": "<a>"
+    },
+    {
+        "question": "দু’টি ওয়েবপেজের মধ্যে যোগাযোগ স্থাপনের জন্য কী ব্যবহার করতে হয়?",
+        "options": [
+            "হাইপার লিঙ্ক",
+            "এলিমেন্ট",
+            "সার্চ ইঞ্জিন",
+            "ব্রাউজার"
+        ],
+        "answer": "হাইপার লিঙ্ক"
+    },
+    {
+        "question": "নিচের কোনটি CSS-এর পূর্ণরূপ?",
+        "options": [
+            "Computer Sheets Style",
+            "Cascading Style Sheets",
+            "Cascading Sheets Style",
+            "Calculating Style Sheets"
+        ],
+        "answer": "Cascading Style Sheets"
+    },
+    {
+        "question": "ডোমেইন নেম হয়-",
+        "options": [
+            "সাইটের স্বতন্ত্র নাম",
+            "সার্ভারের নাম",
+            "ওয়েব ফাইলের নাম",
+            "কোডিং"
+        ],
+        "answer": "সাইটের স্বতন্ত্র নাম"
+    },
+    {
+        "question": "কোন সার্চ ইঞ্জিন?",
+        "options": [
+            "Yahoo",
+            "Norton",
+            "Microsoft",
+            "Bing"
+        ],
+        "answer": "Bing"
+    },
+    {
+        "question": "কোন ট্যাগ হাইপারলিঙ্ক তৈরি করে?",
+        "options": [
+            "<caption>",
+            "<a>",
+            "<Head>",
+            "<HTML>"
+        ],
+        "answer": "<a>"
+    },
+    {
+        "question": "ABC-তে ক্লিক করলে www.google.com যাবে কোন ট্যাগ?",
+        "options": [
+            "<a>",
+            "<b>",
+            "<p>",
+            "<i>"
+        ],
+        "answer": "<a>"
+    },
+    {
+        "question": "HTML-এ লিঙ্ক ট্যাগ কোনটি?",
+        "options": [
+            "<li> -- </li>",
+            "<a> --- </a>",
+            "<ol> --- </ol>",
+            "<link> ----- </link>"
+        ],
+        "answer": "<a> --- </a>"
+    },
+    {
+        "question": "টেবিলের সারির জন্য কোন ট্যাগ?",
+        "options": [
+            "<TR>",
+            "<TD>",
+            "<TH>",
+            "<BR>"
+        ],
+        "answer": "<TR>"
+    },
+    {
+        "question": "<td> কী নির্দেশ করে?",
+        "options": [
+            "টেবিলের সারিকে",
+            "টেবিলের কলামকে",
+            "টেবিলের হেডারকে",
+            "টেবিলের সেলকে"
+        ],
+        "answer": "টেবিলের সেলকে"
+    },
+    {
+        "question": "হেডার সেল তৈরির জন্য কোন ট্যাগ?",
+        "options": [
+            "<th>",
+            "<td>",
+            "<thead>",
+            "<b>"
+        ],
+        "answer": "<th>"
+    },
+    {
+        "question": "URL দ্বারা কোনটি প্রকাশ করা হয়?",
+        "options": [
+            "ইন্টারনেট",
+            "ডোমেইন নেম",
+            "ইয়াহু",
+            "ফেসবুক"
+        ],
+        "answer": "ডোমেইন নেম"
+    },
+    {
+        "question": "কোনটি ওয়েব ব্রাউজার?",
+        "options": [
+            "Chrome",
+            "Gmail",
+            "Facebook",
+            "YouTube"
+        ],
+        "answer": "Chrome"
+    },
+    {
+        "question": "HTML হলো?",
+        "options": [
+            "ওয়েব ব্রাউজার",
+            "মার্কআপ ল্যাংগুয়েজ",
+            "মেশিন ল্যাংগুয়েজ",
+            "ওয়েবপেজ তৈরির টুলস"
+        ],
+        "answer": "মার্কআপ ল্যাংগুয়েজ"
+    },
+    {
+        "question": "ওয়েবপেজ ডিজাইন কোনটি?",
+        "options": [
+            "ওয়েবসার্ভারে তথ্য রাখা",
+            "HTML ডকুমেন্ট তৈরি",
+            "বিশ্বব্যাপী নেটওয়ার্ক",
+            "ডোমেইন রেজিস্ট্রেশন"
+        ],
+        "answer": "HTML ডকুমেন্ট তৈরি"
+    },
+    {
+        "question": "ওয়েবপেজ তৈরিতে কোন ভাষা ব্যবহৃত হয়?",
+        "options": [
+            "Java",
+            "HTML",
+            "xml",
+            "javas"
+        ],
+        "answer": "HTML"
+    },
+    {
+        "question": "HTML এ < p > ও < /p > ট্যাগ ব্যবহার করা হয়?",
+        "options": [
+            "প্যারাগ্রাফ তৈরির জন্য",
+            "নতুন পেজ তৈরির জন্য",
+            "লেখা বোল্ড করার জন্য",
+            "প্রোগ্রাম শুরু করার জন্য"
+        ],
+        "answer": "প্যারাগ্রাফ তৈরির জন্য"
+    },
+    {
+        "question": "HTML এ < b > ও < /b > ট্যাগ ব্যবহার করা হয়?",
+        "options": [
+            "প্যারাগ্রাফ তৈরির জন্য",
+            "নতুন পেজ তৈরির জন্য",
+            "লেখা বোল্ড করার জন্য",
+            "কোনটি নয়"
+        ],
+        "answer": "লেখা বোল্ড করার জন্য"
+    },
+    {
+        "question": "দু’টি ওয়েবপেজের মধ্যে যোগাযোগ স্থাপনের জন্য কী ব্যবহার করতে হয়?",
+        "options": [
+            "হাইপার লিঙ্ক",
+            "এলিমেন্ট",
+            "সার্চ ইঞ্জিন",
+            "ব্রাউজার"
+        ],
+        "answer": "হাইপার লিঙ্ক"
+    },
+    {
+        "question": "প্রতিটি সাইটের স্বতন্ত্র নামকে কী বলে?",
+        "options": [
+            "ওয়েবসাইট",
+            "ডোমেইন",
+            "HTML",
+            "সাইট ডিজাইন"
+        ],
+        "answer": "ডোমেইন"
+    },
+    {
+        "question": "একটি পেজের সাথে অন্য পেজের সংযোগকে HTML ভাষায় কী বলে?",
+        "options": [
+            "Connection",
+            "Hyperlink",
+            "Link",
+            "Addition"
+        ],
+        "answer": "Hyperlink"
+    },
+    {
+        "question": "ISP এর পূর্ণ নাম কী?",
+        "options": [
+            "Internet Super Power",
+            "Internet Server Provider",
+            "Internet Server Programme",
+            "Internet Service Provider"
+        ],
+        "answer": "Internet Service Provider"
+    },
+    {
+        "question": "ওয়েবপেজের এড্রেসকে কী বলে?",
+        "options": [
+            "URL",
+            "HTTP",
+            "https",
+            "WWW"
+        ],
+        "answer": "URL"
+    },
+    {
+        "question": "HTML এর বৈশিষ্ট্য হলো?",
+        "options": [
+            "এটি ইউজার ফ্রেন্ডলি ওপেন টেকনোলজি",
+            "নিরাপত্তা ব্যবস্থা উন্নত",
+            "HTML নিজেকে বর্ধিত করার ক্ষমতা রাখে",
+            "কোড লিখতে সিনটেক্স মনে রাখতে হয়"
+        ],
+        "answer": "এটি ইউজার ফ্রেন্ডলি ওপেন টেকনোলজি"
+    },
+    {
+        "question": "ডোমেইন নাম হলো?",
+        "options": [
+            "সাইটের স্বতন্ত্র নাম",
+            "সার্ভারের নাম",
+            "ওয়েব ফাইলের নাম",
+            "কোডিং"
+        ],
+        "answer": "সাইটের স্বতন্ত্র নাম"
+    },
+    {
+        "question": "নিচের কোনটি CSS এর পূর্ণরূপ?",
+        "options": [
+            "Computer Sheets Style",
+            "Cascading Style Sheets",
+            "Cascading Sheets Style",
+            "Calculating Style Sheets"
+        ],
+        "answer": "Cascading Style Sheets"
+    },
+    {
+        "question": "সঠিক উত্তর কোনটি?",
+        "options": [
+            "< html >, < p >, < i >",
+            "< html >, < i >, < pi >",
+            "< html >, < i >, < p1 >",
+            "< html >, < p1 >, < p >"
+        ],
+        "answer": "< html >, < p >, < i >"
+    },
+    {
+        "question": "কোনটি Image Tag?",
+        "options": [
+            "< b >",
+            "< big >",
+            "< img >",
+            "< ol >"
+        ],
+        "answer": "< img >"
+    },
+    {
+        "question": "ব্যবহারকারী ব্রাউজার করে প্রথম যে পেজটি পায় তাকে কী বলা হয়?",
+        "options": [
+            "প্রথম পেজ",
+            "মেল পেজ",
+            "হোম পেজ",
+            "সাবপেজ"
+        ],
+        "answer": "হোম পেজ"
+    },
+    {
+        "question": "color = \" # FFFFF \" দিয়ে কোন রং প্রদর্শিত হবে?",
+        "options": [
+            "কালো",
+            "লাল",
+            "সাদা",
+            "নীল"
+        ],
+        "answer": "সাদা"
+    },
+    {
+        "question": "টেবিলের ডেটা রাখার জন্য কোন ট্যাগ?",
+        "options": [
+            "<TR>",
+            "<TD>",
+            "<TH>",
+            "<BR>"
+        ],
+        "answer": "<TD>"
+    },
+    {
+        "question": "কোনটি কালার নির্দেশক?",
+        "options": [
+            "“#BBBBBB”",
+            "“#EEEEEE”",
+            "“#000000”",
+            "“#FFFFFF”"
+        ],
+        "answer": "“#000000”"
+    },
+    {
+        "question": "টেবিল রো-এর জন্য কোন ট্যাগ ব্যবহার করা হয়?",
+        "options": [
+            "<TR>",
+            "<TD>",
+            "<TH>",
+            "<BR>"
+        ],
+        "answer": "<TR>"
+    },
+    {
+        "question": "ABC-এ ক্লিক করলে কোন ট্যাগ দিয়ে www.google.com খুলবে?",
+        "options": [
+            "<a>",
+            "<b>",
+            "<p>",
+            "<i>"
+        ],
+        "answer": "<a>"
+    },
+    {
+        "question": "HTML-এ ওয়েব পেজ তৈরির জন্য ফাইলের এক্সটেনশন-",
+        "options": [
+            "htm",
+            "java",
+            "htrnl",
+            "HTML"
+        ],
+        "answer": "HTML"
+    },
+    {
+        "question": "দুটি ওয়েব পেজের মধ্যে যোগাযোগ স্থাপনের জন্য কী ব্যবহার করতে হয়?",
+        "options": [
+            "হাইপার লিঙ্ক",
+            "এলিমেন্ট",
+            "সার্চ ইঞ্জিন",
+            "ব্রাউজার"
+        ],
+        "answer": "হাইপার লিঙ্ক"
+    },
+    {
+        "question": "নিচের কোনটি সার্চ ইঞ্জিন?",
+        "options": [
+            "Google",
+            "Norton",
+            "Microsoft",
+            "Amazon"
+        ],
+        "answer": "Google"
+    },
+    {
+        "question": "< td > কী নির্দেশ করে?",
+        "options": [
+            "টেবিলের সেলকে",
+            "টেবিলের সারিকে",
+            "টেবিলের হেডারকে",
+            "টেবিলের ক্যাপশনকে"
+        ],
+        "answer": "টেবিলের সেলকে"
+    },
+    {
+        "question": "URL-এর পূর্ণরূপ হলো?",
+        "options": [
+            "Unique Resource Line",
+            "Uniform Resource Line",
+            "Unicode Resource Locator",
+            "Uniform Resource Locator"
+        ],
+        "answer": "Uniform Resource Locator"
+    },
+    {
+        "question": "ওয়েবপেজে চিত্র যুক্ত করার সিনট্যাক্স হলো?",
+        "options": [
+            "< img src= “url” >",
+            "< img src, “url” >",
+            "< img=“src”, url >",
+            "< img< “src url” >"
+        ],
+        "answer": "< img src= “url” >"
+    }
+]
