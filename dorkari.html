@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- টাইটেলটি JavaScript দিয়ে পরিবর্তন করা হবে -->
+    <title>প্রশ্ন ও উত্তর</title> 
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* প্রশ্ন-উত্তর সুন্দরভাবে দেখানোর জন্য কিছু বেসিক স্টাইল */
+        .qa-viewer {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            min-height: 200px;
+        }
+        .qa-viewer h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .qa-viewer #answerContainer {
+            margin-top: 15px;
+            border-top: 1px dashed #ccc;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="pageTitle">দরকারি প্রশ্ন ও উত্তর</h1> 
+    </header>
+
+    <main class="container">
+        <div class="viewer-container">
+            <!-- ছবি দেখানোর ডিভটিকে প্রশ্ন-উত্তর দেখানোর জন্য পরিবর্তন করা হয়েছে -->
+            <div class="qa-viewer">
+                <h3 id="questionText">প্রশ্ন লোড হচ্ছে...</h3>
+                <div id="answerContainer">
+                    <p id="answerText"></p>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <button class="btn" id="prevPage">আগের প্রশ্ন</button>
+                <span id="pageIndicator"></span>
+                <button class="btn" id="nextPage">পরের প্রশ্ন</button>
+            </div>
+        </div>
+        <a href="index.html" style="text-align:center; display:block; margin-top: 2rem;">হোম পেজে ফিরে যান</a>
+    </main>
+
+    <!-- জাভাস্ক্রিপ্ট ফাইলটি শেষে থাকবে -->
+    <script src="js/book-view.js"></script>
+</body>
+</html>
