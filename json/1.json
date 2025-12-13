@@ -718,5 +718,455 @@
             "< img< “src url” >"
         ],
         "answer": "< img src= “url” >"
+    },
+    {
+        "question": "Webpage কি?",
+        "options": ["ওয়েব ডকুমেন্ট","অ্যাপ্লিকেশন","সফটওয়‍্যার","ইন্টারনেট"],
+        "answer": "ওয়েব ডকুমেন্ট"
+    },
+    {
+        "question": "নিচের কোন সফ্টওয়্যারের মাধ্যমে বিভিন্ধ ওয়েব সাইট দেখা যায়?",
+        "options": ["ওয়ার্ড প্রসেসর","সার্চ ইঞ্জিন","ওয়েব ব্রাউজার","ডেটাবেজ সফ্টওয়্যার"],
+        "answer": "ওয়েব ব্রাউজার"
+    },
+    {
+        "question": "ডায়নামিক ওয়েবসাইটের কয়টি অংশ থাকে?",
+        "options": ["একটি","তিনটি","দুইটি","চারটি"],
+        "answer": "দুইটি"
+    },
+    {
+        "question": "ওয়েবসাইটের ক্লায়েন্ট অংশে প্রোগ্রামিং করার জন্য সবচেয়ে জনপ্রিয় কোনটি?",
+        "options": ["HTML","CSS","PHP","Java Script"],
+        "answer": "Java Script"
+    },
+    {
+        "question": "ওয়েবসাইট তৈরি হয়-",
+        "options": ["একাধিক সফটওয়‍্যার নিয়ে","একাধিক অ্যাপ্লিকেশন নিয়ে","একাধিক ডকুমেন্ট নিয়ে","একাধিক ওয়েব পেজ নিয়ে"],
+        "answer": "একাধিক ওয়েব পেজ নিয়ে"
+    },
+    {
+        "question": "স্ট্যাটিক ওয়েবসাইট উন্নয়নের ভাষা কোনটি?",
+        "options": ["CSS","PHP","ASP","JSP"],
+        "answer": "CSS"
+    },
+    {
+        "question": "ডেটাবেজ কোন ওয়েবসাইটে ব্যবহৃত হয়?",
+        "options": ["স্ট্যাটিক ওয়েবাসইট","ডাইনামিক ওয়েবসাইট","রিমোট ওয়েবসাইট","লোকাল ওয়েবসাইট"],
+        "answer": "ডাইনামিক ওয়েবসাইট"
+    },
+    {
+        "question": "Hyper Text Markup Language এর সাহায্যে কী তৈরি করা যায়?",
+        "options": ["URL","TCP/IP","http","Web Page"],
+        "answer": "Web Page"
+    },
+    {
+        "question": "ডাইনামিক ওয়েবপেজ তৈরিতে ব্যবহৃত ভাষা কোনটি?",
+        "options": ["HTML","COBOL","PHP","PROLOG"],
+        "answer": "PHP"
+    },
+    {
+        "question": "নিচের কোনটি দিয়ে স্ট্যাটিক ওয়েব পেইজ তৈরি করা হয়?",
+        "options": ["PHP","ASP","JSP","HTML"],
+        "answer": "HTML"
+    },
+    {
+        "question": "কোন প্রটোকলটি ইন্টারনেট সংযোগের ক্ষেত্রে সর্বাধিক ব্যবহৃত হয়?",
+        "options": ["TCP/IP","Net BEUI","Novel netware","Linux"],
+        "answer": "TCP/IP"
+    },
+    {
+        "question": "404 কি ধরনের সতর্ক বার্তা?",
+        "options": ["সার্ভার","সম্পূর্ণভাবে পরিবর্তন হয়ে গেছে।","পাওয়া যায়নি","সার্ভার পওিয়া গেছে"],
+        "answer": "পাওয়া যায়নি"
+    },
+    {
+        "question": "প্রথম Web Browser কোনটি ?",
+        "options": ["WorldWideWeb","Google","Internet Explorer","Safari"],
+        "answer": "WorldWideWeb"
+    },
+    {
+        "question": "একটি আইপি অ্যাড্রেসকে প্রকাশের জন্য মোট কয়টি অকটেট প্রয়োজন?",
+        "options": ["২","৮","৪","৩২"],
+        "answer": "৪"
+    },
+    {
+        "question": "IP Adress কত বিটের হয়?",
+        "options": ["৮","১৬","৩২","৬৪"],
+        "answer": "৩২"
+    },
+    {
+        "question": "শিক্ষামূলক প্রতিষ্ঠানের টপ লেভেল ডোমেইন হবে কোনটি?",
+        "options": [".com",".edu",".org",".int"],
+        "answer": ".edu"
+    },
+    {
+        "question": "নিচের কোনটি HTML এ ডকুমেন্ট টাইপ ডিক্লারেশনের জন্য ব্যবহার করা হয়?",
+        "options": ["(! DOCTYPE html>","< DOCTYPLE HTML>","< /DOCTYPE html>","< !DOCTYPE html>"],
+        "answer": "< !DOCTYPE html>"
+    },
+    {
+        "question": "ওয়েব পেইজে দৃশ্যমান সবকিছু কোন ট্যাগের ভিতর লেখা হয়?",
+        "options": ["html","head","body","Title"],
+        "answer": "body"
+    },
+    {
+        "question": "HTML এর সংস্করণ HTML-5এর প্রকাশকাল কোনটি?",
+        "options": ["২০০৭","২০০৮","২০১০","২০১৪"],
+        "answer": "২০১৪"
+    },
+    {
+        "question": "html এর সম্পূর্ণ ডকুমেন্টটি নিচের কোনট ট্যাগের মধ্যে থাকে?",
+        "options": ["< body>.......< /body >","< head>.....< /head >","< tilte>.....< /title >","< html>.....< /html >"],
+        "answer": "< html>.....< /html >"
+    },
+    {
+        "question": "কোন ট্যাগে ক্লোজিং ট্যাগ দেওয়ার প্রয়োজন নেই?",
+        "options": ["প্যারাগ্রাফ","লাইনব্রেক","টেবিল","হেডার"],
+        "answer": "লাইনব্রেক"
+    },
+    {
+        "question": "সবচেয়ে বড় হেডিং ট্যাগ কোনটি?",
+        "options": ["< h₆>","< h₃>","< h₂>","< h₁>"],
+        "answer": "< h₁>"
+    },
+    {
+        "question": "বোল্ড করার জন্য ব্যবহৃত এলিমেন্ট কোনটি?",
+        "options": ["b","br","bl","b1"],
+        "answer": "b"
+    },
+    {
+        "question": "লেখাকে উপরের উঠানোর জন্য নিচের কোনটি ব্যবহার করা হয়?",
+        "options": ["small","sup","sub","style"],
+        "answer": "sup"
+    },
+    {
+        "question": "(a + b)² সমীকরণটি HTML এ লেখার জন্য কোন এলিমেন্ট প্রয়োজন?",
+        "options": ["< sup>","< sub>","< li>","< ul>"],
+        "answer": "< sup>"
+    },
+    {
+        "question": "X² সমীকরণকে ওয়েব পেইজে প্রদর্শনের জন্য html এর কোন ট্যাগটি ব্যবহার করবে?",
+        "options": ["< sup>","< img>","< sub>","< jpg>"],
+        "answer": "< sup>"
+    },
+    {
+        "question": "HTML এ বাংলা ফন্ট ব্যবহারের জন্য কোন অ্যট্রিবিউট প্রয়োজন?",
+        "options": ["font","face","href","src"],
+        "answer": "face"
+    },
+    {
+        "question": "ফন্টের নাম পরিবর্তন করতে কোন অ্যাট্রিবিউট ব্যবহৃত, হয়?",
+        "options": ["Size","Name","Face","Color"],
+        "answer": "Face"
+    },
+    {
+        "question": "টেবিলের রো এর জন্য নিচের কোন ট্যাগটি ব্যবহৃত হয়?",
+        "options": ["< td>","< br>","< th>","< tr>"],
+        "answer": "< tr>"
+    },
+    {
+        "question": "টেবিলের ফুটার নির্ধারণের জন্য কোন ট্যাগটি ব্যবহার করা হয়?",
+        "options": ["< a foot>","< thfoot>","< tfoot>","< footh>"],
+        "answer": "< tfoot>"
+    },
+    {
+        "question": "টেবিলের টাইটেল নির্ধারণের জন্য কোন ট্যাগ ব্যবহার করা হয়?",
+        "options": ["< a foot>","< caption>","< title>","< t foot>"],
+        "answer": "< caption>"
+    },
+    {
+        "question": "Table Data এর ট্যাগ কোনটি?",
+        "options": ["< TR>","< DT>","< TD>","< ITR>"],
+        "answer": "< TD>"
+    },
+    {
+        "question": "টেবিলের হেডিং এর জন্য কোন ট্যাগটি?",
+        "options": ["< tr>","< a>","< th>","thead"],
+        "answer": "< th>"
+    },
+    {
+        "question": "ব্যাকগ্রাউন্ড কালার দেওয়ার জন্য ব্যবহৃত হয় নিচের কোনটি?",
+        "options": ["bgcolor","Background Colour","Back Color","Fome Color"],
+        "answer": "bgcolor"
+    },
+    {
+        "question": "একটি পেইজের সাথে অন্য পেইজের সংযোগকে HTML ভাষায় কী বলে?",
+        "options": ["Connection","Link","Hyperlink","Addition"],
+        "answer": "Hyperlink"
+    },
+    {
+        "question": "কোনটি হাইপারলিংক তৈরির সঠিক HTML কোড?",
+        "options": ["< a href = \"http://www.m.mcq.com\">ICT Quiz< /a>","< a name = \"http://www.m.mcq.com\">ICT Quiz < /a>","< \"http://www.m.mcq.com\"> < /a>","url \"http://www.m.mcq.com\"> ICT Quiz"],
+        "answer": "< a href = \"http://www.m.mcq.com\">ICT Quiz< /a>"
+    },
+    {
+        "question": "ওয়েব পেজে চিত্র সংযোজনের জন্য ব্যবহৃত ট্যাগ কোনটি?",
+        "options": ["< jpg>","< pic>","< img>","< png>"],
+        "answer": "< img>"
+    },
+    {
+        "question": "ইমজেকে পেজের মাঝখানে স্থাপনের জন্য কোন অ্যাট্রিবিউট ব্যবহৃত হয়?",
+        "options": ["src","alt","align","color"],
+        "answer": "align"
+    },
+{
+        "question": "গঠন বৈচিত্র্যের উপর ভিত্তি করে ওয়েবসাইট কয় ধরনের হয়?",
+        "options": [
+            "২",
+            "৩",
+            "৪",
+            "৫"
+        ],
+        "answer": "২"
+    },
+{
+        "question": "ডায়নামিক ওয়েবসাইটের কয়টি অংশ থাকে?",
+        "options": [
+            "একটি",
+            "তিনটি",
+            "দুইটি",
+            "চারটি"
+        ],
+        "answer": "দুইটি"
+    },
+    {
+        "question": "ওয়েব পেজ কী?",
+        "options": [
+            "ওয়ার্ড ডকুমেন্ট",
+            "কম্পিউটার নেটওয়ার্ক",
+            "এইচটি এম এল ডকুমেন্ট",
+            "সফটওয়্যার"
+        ],
+        "answer": "এইচটি এম এল ডকুমেন্ট"
+    },
+    {
+        "question": "ওয়েব তৈরি করেন কে?",
+        "options": [
+            "ডেনিস রিচি",
+            "জর্ন স্ট্রাড-স্ট্রপ",
+            "টিম বার্নাস লি",
+            "চার্লস ব্যাবেজ"
+        ],
+        "answer": "টিম বার্নাস লি"
+    },
+    {
+        "question": "GIF এর পূর্ণরূপ কী?",
+        "options": [
+            "Graphics Interchange Format",
+            "Joint Photographic Export Format",
+            "Portable Network Graphics",
+            "bitmap image file"
+        ],
+        "answer": "Graphics Interchange Format"
+    },
+    {
+        "question": "FAQ এর পূর্ণরূপ কী?",
+        "options": [
+            "Frequently Askewd Quote",
+            "Frequently Asked Questions",
+            "Frequently Assigned quote",
+            "Frewuently assigned Questions"
+        ],
+        "answer": "Frequently Asked Questions"
+    },
+    {
+        "question": "PNG এর পূর্ণরূপ কী?",
+        "options": [
+            "Graphics Interchange Format",
+            "Joint Photographic Export Format",
+            "Portable Network Graphics",
+            "bitmap image file"
+        ],
+        "answer": "Portable Network Graphics"
+    },
+    {
+        "question": "সারা বিশ্বের সকল আইপি এড্রেস ও ডোমেইন নেম নিয়ন্ত্রণ করে কোন প্রতিষ্ঠান?",
+        "options": [
+            "MICROSOFT",
+            "GOOGLE",
+            "ICANN",
+            "YAHOO"
+        ],
+        "answer": "ICANN"
+    },
+    {
+        "question": "ওয়েব পেইজের প্রথম পৃষ্ঠাকে কী বলে?",
+        "options": [
+            "হাইপারলিংক পেইজ",
+            "লিংক পেইজ",
+            "হোম পেইজ",
+            "ফাস্ট পেইজ"
+        ],
+        "answer": "হোম পেইজ"
+    },
+    {
+        "question": "নিচের কোনটি ছবির ফাইল ফরম্যাট নয়?",
+        "options": [
+            "psd",
+            "png",
+            "gif",
+            "jpg"
+        ],
+        "answer": "psd"
+    },
+    {
+        "question": "ওয়েব পেজে অডিওর জন্য কোন ফাইল ফরমেট ব্যবহৃত হয়?",
+        "options": [
+            ".jpg",
+            ".bmp",
+            ".mp4",
+            ".mp3"
+        ],
+        "answer": ".mp3"
+    },
+    {
+        "question": "কোনটি ওয়েব ব্রাউজার?",
+        "options": [
+            "গুগল",
+            "মজিলা ফায়ারফক্স",
+            "ইয়াহু",
+            "বিং"
+        ],
+        "answer": "মজিলা ফায়ারফক্স"
+    },
+    {
+        "question": "CERN কোথায় অবস্থিত?",
+        "options": [
+            "সুইজারল্যান্ড",
+            "লন্ডনে",
+            "আমেরিকায়",
+            "রাশিয়ায়"
+        ],
+        "answer": "সুইজারল্যান্ড"
+    },
+    {
+        "question": "বাংলা সার্চ ইঞ্জিন-",
+        "options": [
+            "পিপীলিকা",
+            "গুগল",
+            "ইয়হু",
+            "গুগল প্লাস"
+        ],
+        "answer": "পিপীলিকা"
+    },
+    {
+        "question": "IP-V6 এড্রেস কত বিটের?",
+        "options": [
+            "১২৮",
+            "৩২",
+            "১২",
+            "৬"
+        ],
+        "answer": "১২৮"
+    },
+    {
+        "question": "DNS এর পূর্ণরূপ কোনটি?",
+        "options": [
+            "Domain Name Server",
+            "Domain Name System",
+            "Domain Number System",
+            "Domain Number of Server"
+        ],
+        "answer": "Domain Name System"
+    },
+    {
+        "question": "আইপি এর মানে কী?",
+        "options": [
+            "ইন্টারনেট প্রোটোকল",
+            "ইন্টারন্যাশনার প্রোটকল",
+            "ইন্টারনাল প্রোটকল",
+            "ইন্টার প্রোটকল"
+        ],
+        "answer": "ইন্টারনেট প্রোটোকল"
+    },
+    {
+        "question": "URL এর পূর্ণরূপ কী?",
+        "options": [
+            "Uniform Resource Locator",
+            "Unifor Resource Line",
+            "Unicode Resource Loca",
+            "Unique Resource Line"
+        ],
+        "answer": "Uniform Resource Locator"
+    },
+    {
+        "question": "HTTP এর পূর্ণরূপ কী?",
+        "options": [
+            "Higher Text Transfer Protocol",
+            "Hyper Text Transfer Protocol",
+            "Higher Transfer Text Protocol",
+            "Hyper Transfer Text Protocol"
+        ],
+        "answer": "Hyper Text Transfer Protocol"
+    },
+    {
+        "question": "FTP কি",
+        "options": [
+            "Find Telephone Program",
+            "First Transfer Protocol",
+            "File Transfer Protocol",
+            "File Tran Pro"
+        ],
+        "answer": "File Transfer Protocol"
+    },
+    {
+        "question": "html এর পূর্ণরূপ কী?",
+        "options": [
+            "hyper text markup Language",
+            "hyper text mark Language",
+            "hyper text move Language",
+            "hyper text mark up Language"
+        ],
+        "answer": "hyper text markup Language"
+    },
+    {
+        "question": "HTML এর উদ্ভাবক হলেন-",
+        "options": [
+            "টিম বার্নাসলী",
+            "মার্ক জুকারবার্গ",
+            "টিভ জবস",
+            "google"
+        ],
+        "answer": "টিম বার্নাসলী"
+    },
+    {
+        "question": "W3C হলো World Wide Web",
+        "options": [
+            "Committee",
+            "Control",
+            "Consortium",
+            "Come"
+        ],
+        "answer": "Consortium"
+    },
+    {
+        "question": "Source এর সংক্ষিপ্ত রূপ কোনটি?",
+        "options": [
+            "sourc",
+            "srce",
+            "src",
+            "sr"
+        ],
+        "answer": "src"
+    },
+     {
+        "question": "Webpage কি?",
+        "options": [
+            "ওয়েব ডকুমেন্ট",
+            "অ্যাপ্লিকেশন",
+            "সফটওয়‍্যার",
+            "ইন্টারনেট"
+        ],
+        "answer": "ওয়েব ডকুমেন্ট"
+    },
+    {
+        "question": "Google.com কী?",
+        "options": [
+            "browser",
+            "Search engine.",
+            "Protocol",
+            "E-mail address"
+        ],
+        "answer": "Search engine."
     }
 ]
