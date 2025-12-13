@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>রিপোর্ট সাবমিশন</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --shadow-3d: 0 20px 50px rgba(0,0,0,0.3), 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* 3D Container */
+        .container {
+            background: var(--glass-bg);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-3d);
+            width: 100%;
+            max-width: 500px;
+            transform: perspective(1000px) rotateX(2deg);
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .container:hover {
+            transform: perspective(1000px) rotateX(0deg) translateY(-5px);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #f9f9f9;
+            box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05);
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+        }
+
+        /* Custom File Input */
+        .file-upload {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border: 2px dashed #4f46e5;
+            border-radius: 12px;
+            background: rgba(79, 70, 229, 0.05);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .file-upload:hover {
+            background: rgba(79, 70, 229, 0.1);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .file-label-text {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* 3D Button */
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.1s;
+            box-shadow: 0 6px 0 var(--primary-dark), 0 15px 20px rgba(0,0,0,0.2);
+            position: relative;
+            top: 0;
+        }
+
+        .btn-submit:active {
+            top: 6px;
+            box-shadow: 0 0 0 var(--primary-dark), 0 0 0 rgba(0,0,0,0);
+        }
+
+        .btn-submit:disabled {
+            background: #ccc;
+            box-shadow: none;
+            cursor: not-allowed;
+            top: 0;
+        }
+
+        /* Toast Notification */
+        #toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        .toast {
+            min-width: 300px;
+            padding: 16px 20px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateX(100%);
+            animation: slideIn 0.5s forwards;
+        }
+
+        .toast.success { background: linear-gradient(to right, #00b09b, #96c93d); }
+        .toast.error { background: linear-gradient(to right, #ff5f6d, #ffc371); }
+        .toast.info { background: linear-gradient(to right, #2193b0, #6dd5ed); }
+
+        .toast.hide {
+            animation: slideOut 0.5s forwards;
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideOut {
+            to { opacity: 0; transform: translateX(100%); }
+        }
+
+        /* Loader */
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-left: 10px;
+            vertical-align: middle;
+            display: none;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>রিপোর্ট ফর্ম</h2>
+        <form id="reportForm">
+            <div class="form-group">
+                <label>আপনার নাম</label>
+                <input type="text" id="name" placeholder="আপনার পুরো নাম লিখুন" required>
+            </div>
+            
+            <div class="form-group">
+                <label>ইমেইল</label>
+                <input type="email" id="email" placeholder="example@mail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>মোবাইল নম্বর</label>
+                <input type="tel" id="phone" placeholder="01XXXXXXXXX" required>
+            </div>
+
+            <div class="form-group">
+                <label>রিপোর্ট</label>
+                <textarea id="report" rows="4" placeholder="আপনার সমস্যার কথা বিস্তারিত লিখুন..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>ছবি আপলোড (অপশনাল)</label>
+                <label for="images" class="file-upload">
+                    <span class="file-label-text" id="fileLabel">ছবি নির্বাচন করুন (সর্বোচ্চ ৩টি)</span>
+                    <input type="file" id="images" multiple accept="image/*">
+                </label>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submitBtn">
+                পাঠিয়ে দিন <div class="loader" id="btnLoader"></div>
+            </button>
+        </form>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script>
+        // কনফিগারেশন
+        const BOT_TOKEN = "7980531887:AAHb8bMvrusZ0TaD1XRfkzZjN_jnjhBaJpY";
+        const CHAT_ID = "7865712499";
+        
+        // ফর্ম এলিমেন্ট
+        const form = document.getElementById('reportForm');
+        const fileInput = document.getElementById('images');
+        const fileLabel = document.getElementById('fileLabel');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnLoader = document.getElementById('btnLoader');
+
+        // ফাইল নাম দেখানোর জন্য
+        fileInput.addEventListener('change', function() {
+            if(this.files.length > 0) {
+                fileLabel.innerText = `${this.files.length} টি ছবি নির্বাচিত হয়েছে`;
+            } else {
+                fileLabel.innerText = "ছবি নির্বাচন করুন";
+            }
+        });
+
+        // টোস্ট নোটিফিকেশন ফাংশন
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            // লিংকে ক্লিক করার যোগ্য করার জন্য HTML সাপোর্ট
+            toast.innerHTML = message;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add('hide');
+                toast.addEventListener('animationend', () => toast.remove());
+            }, 5000); // ৫ সেকেন্ড পর গায়েব হবে
+        }
+
+        // টাইম চেক ফাংশন (২৪ ঘন্টা)
+        function checkRateLimit() {
+            const lastSubmission = localStorage.getItem('lastReportTime');
+            if (lastSubmission) {
+                const now = new Date().getTime();
+                const diff = now - parseInt(lastSubmission);
+                const oneDay = 24 * 60 * 60 * 1000;
+
+                if (diff < oneDay) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // টেলিগ্রামে মেসেজ পাঠানো
+        async function sendMessage(text) {
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: text,
+                    parse_mode: 'HTML'
+                })
+            });
+            return response.json();
+        }
+
+        // টেলিগ্রামে ছবি পাঠানো
+        async function sendPhoto(file) {
+            const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`;
+            const formData = new FormData();
+            formData.append('chat_id', CHAT_ID);
+            formData.append('photo', file);
+
+            const response = await fetch(url, {
+                method: 'POST',
+                body: formData
+            });
+            return response.json();
+        }
+
+        // ফর্ম সাবমিশন হ্যান্ডলার
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // ১. রেট লিমিট চেক
+            if (!checkRateLimit()) {
+                showToast(`আপনি একবার রিপোর্ট করছে আবার করার জন্য আগামী কাল করুন নয়তো <br><a href="https://facebook.com/nxalimrans" style="color:white; text-decoration:underline; margin-left:5px;" target="_blank">https://facebook.com/nxalimrans</a> এ যোগা যোগ করুন`, 'error');
+                return;
+            }
+
+            // বাটন লোডিং স্ট্যাটাস
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `পাঠানো হচ্ছে... <div class="loader" style="display:inline-block"></div>`;
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const report = document.getElementById('report').value;
+            const files = fileInput.files;
+
+            // মেসেজ ফরম্যাট
+            const messageText = `
+🚨 <b>নতুন রিপোর্ট এসেছে!</b>
+
+👤 <b>নাম:</b> ${name}
+📧 <b>ইমেইল:</b> ${email}
+📱 <b>মোবাইল:</b> ${phone}
+📝 <b>রিপোর্ট:</b>
+${report}
+            `;
+
+            try {
+                // ২. প্রথমে টেক্সট পাঠানো
+                await sendMessage(messageText);
+
+                // ৩. ছবি পাঠানো (যদি থাকে)
+                if (files.length > 0) {
+                    for (let i = 0; i < files.length; i++) {
+                        await sendPhoto(files[i]);
+                    }
+                }
+
+                // ৪. সফল হলে লোকাল স্টোরেজে টাইম সেভ করা
+                localStorage.setItem('lastReportTime', new Date().getTime().toString());
+
+                showToast('আপনার রিপোর্ট সফলভাবে পাঠানো হয়েছে!', 'success');
+                form.reset();
+                fileLabel.innerText = "ছবি নির্বাচন করুন";
+
+            } catch (error) {
+                console.error(error);
+                showToast('দুঃখিত! কিছু ভুল হয়েছে। ইন্টারনেট চেক করুন।', 'error');
+            } finally {
+                // বাটন রিসেট
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'পাঠিয়ে দিন';
+            }
+        });
+    </script>
+</body>
+</html>
