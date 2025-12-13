@@ -39,6 +39,62 @@
             margin-top: 0.5rem;
             font-weight: bold;
         }
+
+        /* পপআপ এর জন্য স্টাইল */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* পেছনের ঝাপসা কালো রঙ */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .popup-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: fadeIn 0.5s;
+        }
+
+        .popup-content h2 {
+            margin-top: 0;
+            color: #d9534f;
+        }
+
+        .popup-content p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .close-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .close-btn:hover {
+            background: #0056b3;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -49,13 +105,13 @@
         
         <div class="book-gallery">
             
-            <a href="PDF/ict4humayon.pdf" class="book-item" target="_blank">
+            <a href="Report/1.html" class="book-item" target="_blank">
                 <img src="https://i.ibb.co/CsQvPrVg/images.jpg" alt="বাংলা ১ম পত্র বই">
                 <p>স্বপন </p>
             </a>
 
             
-            <a href="PDF/ict4imran.pdf" class="book-item" target="_blank">
+            <a href="Report/1." class="book-item" target="_blank">
                 <img src="https://i.ibb.co/CsQvPrVg/images.jpg" alt="ইংরেজি ২য় পত্র বই">
                 <p>ইমরান </p>
             </a>
@@ -68,5 +124,21 @@
 
         <a href="index.html" style="text-align:center; display:block; margin-top: 2rem;">হোম পেজে ফিরে যান</a>
     </main>
+
+    <!-- পপআপ HTML অংশ -->
+    <div class="popup-overlay" id="noticePopup">
+        <div class="popup-content">
+            <h2>নোটিশ</h2>
+            <p>আমাদের কাছে এখনো কোনো pdf ফাইল এর অনুমতি নেই তাই আমরা pdf ফাইল রাখতে পারলাম না । কিছু দিন পড় pdf আসবে ।</p>
+            <button class="close-btn" onclick="closePopup()">ঠিক আছে</button>
+        </div>
+    </div>
+
+    <!-- পপআপ কন্ট্রোল করার জাভাস্ক্রিপ্ট -->
+    <script>
+        function closePopup() {
+            document.getElementById('noticePopup').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
