@@ -55,6 +55,21 @@
             text-decoration: none;
             color: inherit; /* প্যারেন্টের কালার ব্যবহার করবে */
         }
+
+        /* 🔴 Floating Report Button */
+        .report-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff3b3b;
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            z-index: 2000;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
     </style>
 </head>
 <body>
@@ -126,8 +141,8 @@
 
     <footer>
         <!-- ফুটারের লেখাকে লিঙ্কে পরিণত করা হয়েছে -->
-        <a href="https://app.nxalimrans.site/report.html">
-            <p>&copy; 2025 - ICT Chapter 4 ~ NX AL IMRAN S</p>
+        <a href="https://www.nxalimrans.site">
+      <p>&copy;NX AL IMRAN S   </p>
         </a>
     </footer>
 
@@ -135,9 +150,12 @@
     <div class="notice-overlay" id="noticeOverlay"></div>
     <div class="notice-box" id="noticeBox">
         <p>আমাদের ওয়েবসাইট এর তথ্য ভুল থাকতেও  পারে,  কোনো তথ্য ভুল থাকলে রিপোর্ট করতে পারেন।
-নিচে NX AL IMRAN S এ ক্লিক করে রিপোর্ট করতে পারবেন 🥰</p>
+নিচে ⚠️ রিপোর্ট এ ক্লিক করে রিপোর্ট করতে পারবেন 🥰</p>
         <button id="closeNoticeBtn">বুঝেছি</button>
     </div>
+
+    <!-- Floating Report Button -->
+    <a href="Report/1.html" class="report-btn">⚠️ রিপোর্ট</a>
 
     <!-- নোটিশের কার্যকারিতার জন্য JavaScript -->
     <script>
@@ -162,13 +180,43 @@
             const closeNotice = () => {
                 noticeOverlay.style.display = 'none';
                 noticeBox.style.display = 'none';
-                // বর্তমান সময় localStorage-এ সেভ করা হচ্ছে
                 localStorage.setItem(NOTICE_KEY, new Date().getTime());
             };
 
             closeNoticeBtn.addEventListener('click', closeNotice);
             noticeOverlay.addEventListener('click', closeNotice); // বক্সের বাইরে ক্লিক করলেও বন্ধ হবে
         });
+    </script>
+
+    <!-- Shake Detection for Report (Mobile Only) -->
+    <script>
+        let lastShakeTime = 0;
+        let shakeCount = 0;
+
+        if (window.DeviceMotionEvent) {
+            window.addEventListener('devicemotion', function (event) {
+                const acc = event.accelerationIncludingGravity;
+                if (!acc) return;
+
+                const strength = Math.abs(acc.x) + Math.abs(acc.y) + Math.abs(acc.z);
+
+                if (strength > 25) { // shake threshold
+                    const now = Date.now();
+
+                    if (now - lastShakeTime < 1000) {
+                        shakeCount++;
+                    } else {
+                        shakeCount = 1;
+                    }
+
+                    lastShakeTime = now;
+
+                    if (shakeCount >= 3) {
+                        window.location.href = "report.html";
+                    }
+                }
+            });
+        }
     </script>
 </body>
 </html>
