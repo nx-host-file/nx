@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICT Chapter 4</title>
     <link rel="stylesheet" href="css/style.css">
-    
-    <!-- নোটিশ বক্সের জন্য প্রয়োজনীয় স্টাইল -->
+
     <style>
         .notice-overlay {
             position: fixed;
@@ -16,7 +15,7 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.6);
             z-index: 1000;
-            display: none; /* প্রাথমিকভাবে লুকানো থাকবে */
+            display: none;
         }
         .notice-box {
             position: fixed;
@@ -31,7 +30,7 @@
             width: 90%;
             max-width: 500px;
             text-align: center;
-            display: none; /* প্রাথমিকভাবে লুকানো থাকবে */
+            display: none;
         }
         .notice-box p {
             margin: 0 0 20px;
@@ -50,13 +49,10 @@
         .notice-box button:hover {
             background-color: #0056b3;
         }
-        /* ফুটারের লিঙ্কের স্টাইল */
         footer a {
             text-decoration: none;
-            color: inherit; /* প্যারেন্টের কালার ব্যবহার করবে */
+            color: inherit;
         }
-
-        /* 🔴 Floating Report Button */
         .report-btn {
             position: fixed;
             bottom: 20px;
@@ -72,152 +68,169 @@
         }
     </style>
 </head>
+
 <body>
-    <header>
-        <h1>ICT - ৪র্থ অধ্যায়</h1>
-        <p>পড়া, অনুশীলন এবং প্রস্তুতি - সবকিছু এক জায়গায়</p>
-    </header>
 
-    <main class="container">
-        <nav class="main-menu">
-            <a href="pdf.html" class="menu-item">
-                <div class="icon">📚</div>
-                <div>
-                    <h2>সম্পূর্ণ অধ্যায় PDF </h2>
-                    <p>অধ্যায়ের প্রতিটি পৃষ্ঠা বিস্তারিত পড়ুন</p>
-                </div>
-            </a>
-            <a href="dorkari.html" class="menu-item">
-                <div class="icon">✨</div>
-                <div>
-                    <h2>দরকারি তথ্য</h2>
-                    <p>গুরুত্বপূর্ণ তথ্যের সংগ্রহ</p>
-                </div>
-            </a>
-            <a href="board_mcq.html" class="menu-item">
-                <div class="icon">📝</div>
-                <div>
-                    <h2>বোর্ড MCQ</h2>
-                    <p>সকল বোর্ড পরীক্ষার MCQ দেখুন</p>
-                </div>
-            </a>
-            <a href="cq.html" class="menu-item">
-                <div class="icon">💡</div>
-                <div>
-                    <h2>CQ প্রশ্ন</h2>
-                    <p>বোর্ডের সৃজনশীল প্রশ্ন ও উত্তর</p>
-                </div>
-            </a>
-            <a href="quiz.html?level=easy" class="menu-item">
-                <div class="icon">🎯</div>
-                <div>
-                    <h2>সহজ কুইজ</h2>
-                    <p>বেসিক যাচাইয়ের জন্য দ্রুত কুইজ</p>
-                </div>
-            </a>
-            <a href="quiz.html?level=hard" class="menu-item">
-                <div class="icon">🧠</div>
-                <div>
-                    <h2>কঠিন কুইজ</h2>
-                    <p>এডভান্সড লেভেলের প্রস্তুতি নিন</p>
-                </div>
-            </a>
-           <a href="exam.html" class="menu-item">
-                <div class="icon">📝</div>
-                <div>
-                    <h2>MCQ পরীক্ষা</h2>
-                    <p>এডভান্সড লেভেলের প্রস্তুতি নেওয়ার জন্য পরীক্ষা দিন </p>
-                </div>
-            </a>
-             <a href="ai_note.html" class="menu-item">
-                <div class="icon">🤖</div>
-                <div>
-                    <h2>অনুধাবনমূলক প্রশ্ন-উত্তর</h2>
-                    <p>AI দিয়ে তৈরি অধ্যায়ের নোট</p>
-                </div>
-            </a>
-        </nav>
-    </main>
+<header>
+    <h1>ICT - ৪র্থ অধ্যায়</h1>
+    <p>পড়া, অনুশীলন এবং প্রস্তুতি - সবকিছু এক জায়গায়</p>
+</header>
 
-    <footer>
-        <!-- ফুটারের লেখাকে লিঙ্কে পরিণত করা হয়েছে -->
-        <a href="https://www.nxalimrans.site">
-      <p>&copy;NX AL IMRAN S   </p>
+<main class="container">
+    <nav class="main-menu">
+        <a href="pdf.html" class="menu-item">
+            <div class="icon">📚</div>
+            <div>
+                <h2>সম্পূর্ণ অধ্যায় PDF </h2>
+                <p>অধ্যায়ের প্রতিটি পৃষ্ঠা বিস্তারিত পড়ুন</p>
+            </div>
         </a>
-    </footer>
+        <a href="dorkari.html" class="menu-item">
+            <div class="icon">✨</div>
+            <div>
+                <h2>দরকারি তথ্য</h2>
+                <p>গুরুত্বপূর্ণ তথ্যের সংগ্রহ</p>
+            </div>
+        </a>
+        <a href="board_mcq.html" class="menu-item">
+            <div class="icon">📝</div>
+            <div>
+                <h2>বোর্ড MCQ</h2>
+                <p>সকল বোর্ড পরীক্ষার MCQ দেখুন</p>
+            </div>
+        </a>
+        <a href="cq.html" class="menu-item">
+            <div class="icon">💡</div>
+            <div>
+                <h2>CQ প্রশ্ন</h2>
+                <p>বোর্ডের সৃজনশীল প্রশ্ন ও উত্তর</p>
+            </div>
+        </a>
+        <a href="quiz.html?level=easy" class="menu-item">
+            <div class="icon">🎯</div>
+            <div>
+                <h2>সহজ কুইজ</h2>
+                <p>বেসিক যাচাইয়ের জন্য দ্রুত কুইজ</p>
+            </div>
+        </a>
+        <a href="quiz.html?level=hard" class="menu-item">
+            <div class="icon">🧠</div>
+            <div>
+                <h2>কঠিন কুইজ</h2>
+                <p>এডভান্সড লেভেলের প্রস্তুতি নিন</p>
+            </div>
+        </a>
+        <a href="exam.html" class="menu-item">
+            <div class="icon">📝</div>
+            <div>
+                <h2>MCQ পরীক্ষা</h2>
+                <p>এডভান্সড লেভেলের প্রস্তুতি নেওয়ার জন্য পরীক্ষা দিন </p>
+            </div>
+        </a>
+        <a href="ai_note.html" class="menu-item">
+            <div class="icon">🤖</div>
+            <div>
+                <h2>অনুধাবনমূলক প্রশ্ন-উত্তর</h2>
+                <p>AI দিয়ে তৈরি অধ্যায়ের নোট</p>
+            </div>
+        </a>
+    </nav>
+</main>
 
-    <!-- নোটিশ দেখানোর জন্য HTML কোড -->
-    <div class="notice-overlay" id="noticeOverlay"></div>
-    <div class="notice-box" id="noticeBox">
-        <p>আমাদের ওয়েবসাইট এর তথ্য ভুল থাকতেও  পারে,  কোনো তথ্য ভুল থাকলে রিপোর্ট করতে পারেন।
-নিচে ⚠️ রিপোর্ট এ ক্লিক করে রিপোর্ট করতে পারবেন 🥰
-অথবা ফোনটা একটু লারা দাও 🙂😁</p>
-        <button id="closeNoticeBtn">বুঝেছি</button>
-    </div>
+<footer>
+    <a href="https://www.nxalimrans.site">
+        <p>&copy;NX AL IMRAN S</p>
+    </a>
+</footer>
 
-    <!-- Floating Report Button -->
-    <a href="Report/1.html" class="report-btn">⚠️ রিপোর্ট</a>
+<!-- Existing Notice -->
+<div class="notice-overlay" id="noticeOverlay"></div>
+<div class="notice-box" id="noticeBox">
+    <p>
+        আমাদের ওয়েবসাইট এর তথ্য ভুল থাকতেও পারে, কোনো তথ্য ভুল থাকলে রিপোর্ট করতে পারেন।
+        নিচে ⚠️ রিপোর্ট এ ক্লিক করে রিপোর্ট করতে পারবেন 🥰
+        অথবা ফোনটা একটু লারা দাও 🙂😁
+    </p>
+    <button id="closeNoticeBtn">বুঝেছি</button>
+</div>
 
-    <!-- নোটিশের কার্যকারিতার জন্য JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const noticeOverlay = document.getElementById('noticeOverlay');
-            const noticeBox = document.getElementById('noticeBox');
-            const closeNoticeBtn = document.getElementById('closeNoticeBtn');
-            
-            const NOTICE_KEY = 'noticeLastShown';
-            const TWENTY_FOUR_HOURS_IN_MS = 24 * 60 * 60 * 1000;
+<!-- Floating Report Button -->
+<a href="Report/1.html" class="report-btn">⚠️ রিপোর্ট</a>
 
-            const lastShownTimestamp = localStorage.getItem(NOTICE_KEY);
-            const currentTime = new Date().getTime();
+<!-- Shake Popup -->
+<div class="notice-overlay" id="shakeOverlay"></div>
+<div class="notice-box" id="shakeBox">
+    <p>আপনি কি কোনো সমস্যা রিপোর্ট করতে চান?</p>
+    <button id="shakeYes">Report</button><br><br>
+    <button id="shakeNo" style="background:#999;">Cancel</button>
+</div>
 
-            // চেক করে দেখা হচ্ছে যে শেষবার দেখানোর পর ২৪ ঘণ্টা পার হয়েছে কিনা
-            if (!lastShownTimestamp || (currentTime - lastShownTimestamp > TWENTY_FOUR_HOURS_IN_MS)) {
-                noticeOverlay.style.display = 'block';
-                noticeBox.style.display = 'block';
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const noticeOverlay = document.getElementById('noticeOverlay');
+    const noticeBox = document.getElementById('noticeBox');
+    const closeNoticeBtn = document.getElementById('closeNoticeBtn');
+
+    const NOTICE_KEY = 'noticeLastShown';
+    const lastShown = localStorage.getItem(NOTICE_KEY);
+    const now = Date.now();
+
+    if (!lastShown || now - lastShown > 86400000) {
+        noticeOverlay.style.display = 'block';
+        noticeBox.style.display = 'block';
+    }
+
+    function closeNotice() {
+        noticeOverlay.style.display = 'none';
+        noticeBox.style.display = 'none';
+        localStorage.setItem(NOTICE_KEY, now);
+    }
+
+    closeNoticeBtn.onclick = closeNotice;
+    noticeOverlay.onclick = closeNotice;
+});
+</script>
+
+<script>
+let lastShakeTime = 0;
+let shakeCount = 0;
+
+const shakeOverlay = document.getElementById('shakeOverlay');
+const shakeBox = document.getElementById('shakeBox');
+
+document.getElementById('shakeYes').onclick = () => {
+    window.location.href = "Report/1.html";
+};
+document.getElementById('shakeNo').onclick = () => {
+    shakeOverlay.style.display = 'none';
+    shakeBox.style.display = 'none';
+};
+shakeOverlay.onclick = () => {
+    shakeOverlay.style.display = 'none';
+    shakeBox.style.display = 'none';
+};
+
+if (window.DeviceMotionEvent) {
+    window.addEventListener('devicemotion', function (event) {
+        const acc = event.accelerationIncludingGravity;
+        if (!acc) return;
+
+        const strength = Math.abs(acc.x) + Math.abs(acc.y) + Math.abs(acc.z);
+
+        if (strength > 25) {
+            const now = Date.now();
+            shakeCount = (now - lastShakeTime < 1000) ? shakeCount + 1 : 1;
+            lastShakeTime = now;
+
+            if (shakeCount >= 3) {
+                shakeOverlay.style.display = 'block';
+                shakeBox.style.display = 'block';
+                shakeCount = 0;
             }
-
-            // নোটিশ বন্ধ করার ফাংশন
-            const closeNotice = () => {
-                noticeOverlay.style.display = 'none';
-                noticeBox.style.display = 'none';
-                localStorage.setItem(NOTICE_KEY, new Date().getTime());
-            };
-
-            closeNoticeBtn.addEventListener('click', closeNotice);
-            noticeOverlay.addEventListener('click', closeNotice); // বক্সের বাইরে ক্লিক করলেও বন্ধ হবে
-        });
-    </script>
-
-    <!-- Shake Detection for Report (Mobile Only) -->
-    <script>
-        let lastShakeTime = 0;
-        let shakeCount = 0;
-
-        if (window.DeviceMotionEvent) {
-            window.addEventListener('devicemotion', function (event) {
-                const acc = event.accelerationIncludingGravity;
-                if (!acc) return;
-
-                const strength = Math.abs(acc.x) + Math.abs(acc.y) + Math.abs(acc.z);
-
-                if (strength > 25) { // shake threshold
-                    const now = Date.now();
-
-                    if (now - lastShakeTime < 1000) {
-                        shakeCount++;
-                    } else {
-                        shakeCount = 1;
-                    }
-
-                    lastShakeTime = now;
-
-                    if (shakeCount >= 3) {
-                        window.location.href = "Report/1.html";
-                    }
-                }
-            });
         }
-    </script>
+    });
+}
+</script>
+
 </body>
 </html>
